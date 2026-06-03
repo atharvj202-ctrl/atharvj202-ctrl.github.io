@@ -1327,6 +1327,50 @@ footer p {
     gap: 10px;
   }
 }
+
+/* ── DYNAMIC MARKDOWN CASE STUDIES ───────────────── */
+#cs-md-body {
+  max-width: 760px;
+}
+#cs-md-body h3 {
+  font-family: var(--font-head);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--green-deep);
+  margin-top: 48px;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+#cs-md-body p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+#cs-md-body ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 32px;
+}
+#cs-md-body ul li {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text-muted);
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 12px;
+}
+#cs-md-body ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 13px;
+}
 </style>
 </head>
 <body>
@@ -1496,21 +1540,6 @@ footer p {
         <p class="work-finding">"The brand had first-mover advantage in a category with zero dominant players in India. It was spending that advantage on content indistinguishable from every competitor."</p>
       </div>
       <div class="work-arrow">→</div>
-    </a>
-
-    <!-- PawsIndia -->
-    <a href="#" class="work-item reveal reveal-delay-5" onclick="openCase('pawsindia'); return false;">
-      <div class="work-num">07</div>
-      <div class="work-content">
-        <div class="work-tags">
-          <span class="work-tag">Brand Audit</span>
-          <span class="work-tag">Website Analysis</span>
-          <span class="work-tag">Instagram Audit</span>
-        </div>
-        <div class="work-title">PawsIndia &mdash; Website &amp; Instagram Audit</div>
-        <p class="work-finding">"A Shark Tank India alumni with 74K followers, a talented social team, and a trust gap hiding in plain sight between what Instagram promises and what the website delivers."</p>
-      </div>
-      <div class="work-arrow">&rarr;</div>
     </a>
 
   </div>
@@ -2241,195 +2270,19 @@ footer p {
   </div>
 </div>
 
-<!-- PawsIndia Case Study -->
-<div id="cs-pawsindia" class="case-study">
-  <a href="#" class="cs-back" onclick="closeCase(); return false;">&larr; Back to work</a>
+<!-- Generic Markdown Case Study Container -->
+<div id="cs-markdown" class="case-study">
+  <a href="#" class="cs-back" onclick="closeCase(); return false;">← Back to work</a>
   <div class="cs-header">
-    <div class="cs-client">PawsIndia &middot; Pet Fashion &amp; Accessories &middot; Mumbai</div>
-    <h2 class="cs-title">Website &amp;<br>Instagram Audit</h2>
-    <div class="cs-meta">
-      <div class="cs-meta-item"><label>Type</label><span>Independent Audit</span></div>
-      <div class="cs-meta-item"><label>Year</label><span>2026</span></div>
-      <div class="cs-meta-item"><label>Channels</label><span>Website &amp; Instagram</span></div>
+    <div class="cs-client" id="cs-md-client">Client Name</div>
+    <h2 class="cs-title" id="cs-md-title">Project Title</h2>
+    <div class="cs-meta" id="cs-md-meta">
+      <!-- Generated dynamically -->
     </div>
   </div>
 
-  <div class="cs-body">
-
-    <div class="cs-stat-row">
-      <div class="cs-stat"><strong>74.3K</strong><span>Instagram Followers</span></div>
-      <div class="cs-stat"><strong>3,068</strong><span>Posts Published</span></div>
-      <div class="cs-stat"><strong>432</strong><span>Product Reviews</span></div>
-      <div class="cs-stat"><strong>B+</strong><span>Instagram Grade</span></div>
-    </div>
-
-    <div class="cs-section">
-      <div class="cs-section-label">The Brief</div>
-      <p>PawsIndia is a Shark Tank India alumni &mdash; a Mumbai-based pet fashion and accessories brand with 74.3K Instagram followers, a genuinely differentiated product range (IPL jerseys, traditional wear for pets, Bollywood cultural tie-ins), and a social team that clearly understands the Indian internet. The audit covered both the website and Instagram to identify why a brand with this much creative energy was still leaving significant trust and conversion on the table.</p>
-    </div>
-
-    <div class="cs-callout">
-      <p>"The Shark Tank India credential is GOLD. It is the single most powerful trust signal the brand possesses &mdash; and it appears on Instagram but nowhere on the website. Not on the homepage. Not on the About Us page. Not in the footer. A brand that earned national media validation is hiding its biggest proof point."</p>
-    </div>
-
-    <div class="cs-section">
-      <div class="cs-section-label">Critical Finding &mdash; The Trust Gap</div>
-      <h3>Instagram and the website are telling two different stories.</h3>
-      <p>The audit's most urgent finding was not a UX problem or a content gap &mdash; it was a fundamental misalignment between what the brand promises on Instagram and what a new visitor encounters on the website. This gap is conversion-silent: the brand never sees the bounce, but it pays for it in purchase hesitation every day.</p>
-    </div>
-
-    <div class="cs-split">
-      <div class="cs-split-col works-col">
-        <div class="cs-split-col-label works">Instagram Says</div>
-        <ul>
-          <li>"As seen on Shark Tank India" &mdash; verified badge, massive credibility signal</li>
-          <li>"Easy returns" &mdash; prominently stated in bio</li>
-          <li>"Treats, apparel, accessories, toys" &mdash; full category breadth communicated</li>
-          <li>Comment-to-DM automation &mdash; sophisticated e-commerce conversion tactic</li>
-          <li>Near-daily publishing &mdash; exceptional content velocity</li>
-        </ul>
-      </div>
-      <div class="cs-split-col doesnt-col">
-        <div class="cs-split-col-label doesnt">Website Says</div>
-        <ul>
-          <li>Zero mention of Shark Tank anywhere on the entire site</li>
-          <li>No refunds &mdash; store credit only (expires 90 days), &#8377;100&ndash;150 pickup fee</li>
-          <li>No treats or food products in store despite bio claim</li>
-          <li>No reviews or ratings visible on homepage product cards</li>
-          <li>Blog last published February 2025 &mdash; dormant for 4+ months</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="cs-callout">
-      <p>"The return policy is a conversion killer for first-time buyers. A customer evaluating pet clothing faces high size uncertainty. When they find 'non-refundable, non-exchangeable' on dog clothes, the purchase stops &mdash; silently. The brand never sees it as a bounce. It registers as a decision not made."</p>
-    </div>
-
-    <div class="cs-content-header">
-      <span class="cs-content-header-label">Website Audit</span>
-      <div class="cs-content-header-rule"></div>
-    </div>
-
-    <h3 class="cs-content-title">Conversion blockers hiding in <em>plain sight.</em></h3>
-    <p class="cs-content-intro">The homepage journey is strong in concept &mdash; seasonal hook, must-have consumable, lifestyle aspiration, vet authority content. But several execution failures are silently reducing conversion at each stage, and none of them require a rebuild to fix.</p>
-
-    <div class="cs-section">
-      <div class="cs-section-label">Four Conversion Blockers Costing Real Revenue</div>
-      <div class="cs-decisions">
-        <div class="cs-decision">
-          <div class="cs-decision-num">01</div>
-          <h4>No Pricing on Homepage Cards</h4>
-          <p>Prices load dynamically. If JavaScript fails or loads slowly, users see product cards with no price &mdash; an instant bounce trigger. In a price-sensitive category, the absence of a number reads as evasion, not premium positioning.</p>
-        </div>
-        <div class="cs-decision">
-          <div class="cs-decision-num">02</div>
-          <h4>Reviews Buried on Product Pages</h4>
-          <p>The brand has 432 reviews and a 4.59-star rating &mdash; strong social proof &mdash; but none appears on the homepage. Trust assets that exist but are not shown cannot do conversion work. These numbers need to be on the first scroll.</p>
-        </div>
-        <div class="cs-decision">
-          <div class="cs-decision-num">03</div>
-          <h4>Two Promo Codes Active Simultaneously</h4>
-          <p>SAVE100 and EXTRA100 are both running at once. This creates decision fatigue at the moment of conversion &mdash; exactly the wrong moment. A discount that requires calculation is a discount that often does not get used.</p>
-        </div>
-        <div class="cs-decision">
-          <div class="cs-decision-num">04</div>
-          <h4>Brand Name Used Inconsistently</h4>
-          <p>Three casings appear across the site: "Pawsindia", "PawsIndia", "PAWSINDIA". Inconsistent naming signals that nobody is responsible for the brand at the execution level &mdash; and first-time buyers read that signal correctly.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="cs-section">
-      <div class="cs-section-label">Competitive Position and Defensible Moats</div>
-      <p>PawsIndia occupies a high-differentiation, narrow-focus position in the Indian pet market &mdash; valuable but vulnerable. The cultural merchandising (IPL jerseys, traditional wear, Bollywood tie-ins) is a genuine first-mover advantage. But it is easily replicable by a better-funded competitor. The brand's only defensible moats are community and content &mdash; precisely the two it is not actively building.</p>
-      <div class="cs-gap-grid">
-        <div class="cs-gap-item">
-          <div class="cs-gap-label">Moat 01</div>
-          <div class="cs-gap-title">Community Moat</div>
-          <div class="cs-gap-body">Build an Instagram-first pet parent community. UGC and emotional connection are hard to replicate at scale. A "Pet of the Week" series and branded hashtag (#PawsIndiaFamily) begins this flywheel at zero cost.</div>
-        </div>
-        <div class="cs-gap-item">
-          <div class="cs-gap-label">Moat 02</div>
-          <div class="cs-gap-title">Subscription Moat</div>
-          <div class="cs-gap-body">Pee Tissues are the only consumable/repeat-purchase product &mdash; the brand's cash cow. An auto-replenish subscription converts one-time buyers into a recurring revenue base that competitors cannot easily poach.</div>
-        </div>
-        <div class="cs-gap-item">
-          <div class="cs-gap-label">Moat 03</div>
-          <div class="cs-gap-title">Content Moat</div>
-          <div class="cs-gap-body">Own the SEO for "pet fashion India" and "best dog clothes India." The blog has been dormant since February 2025. The first brand to rank consistently owns the organic acquisition channel in perpetuity.</div>
-        </div>
-        <div class="cs-gap-item">
-          <div class="cs-gap-label">Moat 04</div>
-          <div class="cs-gap-title">Design IP Moat</div>
-          <div class="cs-gap-body">A "PawsIndia Originals" badge on in-house designs separates proprietary products from curated ones &mdash; building premium perception and making the core identity harder to copy credibly.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cs-content-header">
-      <span class="cs-content-header-label">Instagram Audit</span>
-      <div class="cs-content-header-rule"></div>
-    </div>
-
-    <h3 class="cs-content-title">Strong execution. <em>Incomplete strategy.</em></h3>
-    <p class="cs-content-intro">The social team is genuinely talented. The trend-jacking is fast, culturally precise, and algorithmically smart. The comment-to-DM automation is more sophisticated than anything on the website. Content velocity &mdash; 3,068 posts, near-daily publishing &mdash; is exceptional. And yet the brand is not building the one thing that would make all of this compound: community infrastructure.</p>
-
-    <div class="cs-section">
-      <div class="cs-section-label">What the Content Mix Reveals</div>
-      <div class="cs-flow">
-        <div class="cs-flow-step">
-          <div class="cs-flow-pct">~40%</div>
-          <div class="cs-flow-name">Trend-Jacking Reels</div>
-          <div class="cs-flow-body">Cannes celebrity outfits vs. pets, IPL jerseys, Bollywood references. Highest reach format. Fast, culturally resonant, algorithmically effective &mdash; the social team's clearest strength.</div>
-        </div>
-        <div class="cs-flow-step">
-          <div class="cs-flow-pct">~30%</div>
-          <div class="cs-flow-name">Product Showcase</div>
-          <div class="cs-flow-body">Tuxedo demos, Pee Tissue benefits, jersey reveals. Drives sales but over-represented relative to trust-building content. Without community or founder content alongside it, this reads as advertising, not brand.</div>
-        </div>
-        <div class="cs-flow-step">
-          <div class="cs-flow-pct">~10%</div>
-          <div class="cs-flow-name">UGC / Customer Pets</div>
-          <div class="cs-flow-body">The highest-trust format on the account &mdash; and the most underused. The only content that proves the product works in the real world. It should be 25&ndash;30%, not 10%.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cs-section">
-      <div class="cs-section-label">Five Content Gaps &mdash; Not Underperforming. Absent.</div>
-      <div class="cs-pillar-list">
-        <div class="cs-pillar-row">
-          <div class="cs-pillar-name">Founder Content</div>
-          <div class="cs-pillar-body">PawsIndia is a Shark Tank India alumni with zero founder-face content on Instagram. The algorithm explicitly favours face-forward content. Beyond reach, founder visibility is the highest-trust signal available to a DTC brand &mdash; and it costs nothing to produce.</div>
-        </div>
-        <div class="cs-pillar-row">
-          <div class="cs-pillar-name">Shark Tank Story Highlight</div>
-          <div class="cs-pillar-body">The bio mentions Shark Tank. There is no Story Highlight dedicated to it. A new visitor who missed the episode has no way to understand what the credential means. The moment needs its own permanent real estate on the profile.</div>
-        </div>
-        <div class="cs-pillar-row">
-          <div class="cs-pillar-name">Educational Carousels</div>
-          <div class="cs-pillar-body">The account is 85% Reels. Carousels are Instagram's highest-engagement format for saves and shares. "How to measure your dog for a jersey" is saveable, shareable, and builds category authority. Zero carousel content exists on the account.</div>
-        </div>
-        <div class="cs-pillar-row">
-          <div class="cs-pillar-name">Behind the Scenes</div>
-          <div class="cs-pillar-body">Design process, warehouse packing, product testing, quality checks. This is the content that separates a brand from a reseller. PawsIndia has proprietary products &mdash; showing how they're made is proof no competitor can replicate.</div>
-        </div>
-        <div class="cs-pillar-row">
-          <div class="cs-pillar-name">Hashtag Framework</div>
-          <div class="cs-pillar-body">Posts alternate between 1 hashtag and 6+ with no consistent logic. A defined framework &mdash; brand (#PawsIndiaFamily), category (#PetFashionIndia), campaign-specific &mdash; applied systematically to every post would improve discoverability and make UGC findable.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cs-callout">
-      <p>"The comment-to-DM automation is the most sophisticated e-commerce tactic on the entire digital presence &mdash; more advanced than anything on the website. Comments boost algorithmic reach, each commenter enters an automated DM funnel, product link, checkout, sale. This is working. The failure is that it is working in isolation, without the trust infrastructure that would make it convert at a meaningfully higher rate."</p>
-    </div>
-
-    <div class="cs-section">
-      <div class="cs-section-label">The Implication</div>
-      <p>PawsIndia has strong product intuition, a social team with genuine creative range, and a Shark Tank credential that most DTC brands would spend years trying to earn. The bones are exceptionally strong. What the audits revealed &mdash; consistently across both channels &mdash; is the same gap: the brand has built credibility it has not learned to communicate. The Shark Tank story is not on the website. The founder is not on the feed. The reviews are not on the homepage. The return policy undoes the warmth of the bio. Every trust asset exists &mdash; and none of it is doing the work it could. That is the entire strategic problem. And it is the most solvable kind.</p>
-    </div>
-
+  <div class="cs-body" id="cs-md-body">
+    <!-- Parsed markdown content will be injected here -->
   </div>
 </div>
 
@@ -2614,6 +2467,171 @@ function closeCase() {
   document.querySelector('footer').style.display = '';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+/* ── DYNAMIC PROJECTS LOADER ─────────────────── */
+function parseMarkdown(md) {
+  let lines = md.replace(/\r\n/g, '\n').split('\n');
+  let html = [];
+  let inList = false;
+
+  for (let line of lines) {
+    let trimmed = line.trim();
+    
+    // Headers
+    if (trimmed.startsWith('### ')) {
+      if (inList) { html.push('</ul>'); inList = false; }
+      html.push(`<h3>${trimmed.substring(4)}</h3>`);
+    } else if (trimmed.startsWith('## ')) {
+      if (inList) { html.push('</ul>'); inList = false; }
+      html.push(`<h2>${trimmed.substring(3)}</h2>`);
+    } else if (trimmed.startsWith('# ')) {
+      if (inList) { html.push('</ul>'); inList = false; }
+      html.push(`<h1>${trimmed.substring(2)}</h1>`);
+    }
+    // Blockquote
+    else if (trimmed.startsWith('> ')) {
+      if (inList) { html.push('</ul>'); inList = false; }
+      html.push(`<blockquote>${trimmed.substring(2)}</blockquote>`);
+    }
+    // List items
+    else if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
+      if (!inList) {
+        html.push('<ul>');
+        inList = true;
+      }
+      let content = trimmed.substring(2);
+      // Process bold/italic inside list items
+      content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      content = content.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      html.push(`<li>${content}</li>`);
+    }
+    // Blank lines
+    else if (trimmed === '') {
+      if (inList) {
+        html.push('</ul>');
+        inList = false;
+      }
+      html.push('');
+    }
+    // Normal paragraph
+    else {
+      if (inList) {
+        html.push('</ul>');
+        inList = false;
+      }
+      let content = trimmed;
+      content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      content = content.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      html.push(`<p>${content}</p>`);
+    }
+  }
+  
+  if (inList) {
+    html.push('</ul>');
+  }
+
+  return html.join('\n').replace(/<p><\/p>/g, '');
+}
+
+async function openMarkdownCase(id, markdownFile, title, tags, client) {
+  // Hide main sections and footer, like openCase
+  mainSections.forEach(s => {
+    const el = document.getElementById(s);
+    if (el) el.style.display = 'none';
+  });
+  document.querySelector('footer').style.display = 'none';
+
+  // Hide any previously open case study
+  document.querySelectorAll('.case-study').forEach(cs => cs.style.display = 'none');
+
+  const csMarkdown = document.getElementById('cs-markdown');
+  const csTitle = document.getElementById('cs-md-title');
+  const csClient = document.getElementById('cs-md-client');
+  const csMeta = document.getElementById('cs-md-meta');
+  const csBody = document.getElementById('cs-md-body');
+
+  csTitle.innerText = title;
+  csClient.innerText = client;
+
+  // Build meta items
+  let metaHtml = '';
+  if (tags && tags.length > 0) {
+    metaHtml += `<div class="cs-meta-item"><label>Type</label><span>${tags.join(', ')}</span></div>`;
+  }
+  csMeta.innerHTML = metaHtml;
+  csBody.innerHTML = '<p style="text-align: center; color: var(--text-faint);">Loading project content...</p>';
+  csMarkdown.style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  try {
+    const res = await fetch(markdownFile);
+    if (!res.ok) throw new Error('Failed to load project file');
+    const mdText = await res.text();
+    csBody.innerHTML = parseMarkdown(mdText);
+  } catch (err) {
+    csBody.innerHTML = `<p style="text-align: center; color: #A0522D;">Error loading project content. Please make sure the file exists in the repository.</p>`;
+    console.error(err);
+  }
+}
+
+// Load external projects from projects.json on page load
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const res = await fetch('projects.json');
+    if (!res.ok) return;
+    const projects = await res.json();
+    const workIndex = document.querySelector('.work-index');
+
+    projects.forEach((proj, idx) => {
+      // Create new card element
+      const card = document.createElement('a');
+      card.href = '#';
+      card.className = 'work-item reveal';
+      // Calculate delay based on position
+      const delay = (idx % 5) + 1;
+      card.classList.add(`reveal-delay-${delay}`);
+      
+      // Setup click handler
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        openMarkdownCase(proj.id, proj.markdownFile, proj.title, proj.tags, proj.client);
+      });
+
+      // Build card content
+      let tagsHtml = proj.tags.map(t => `<span class="work-tag">${t}</span>`).join('\n');
+      card.innerHTML = `
+        <div class="work-num">${proj.num}</div>
+        <div class="work-content">
+          <div class="work-tags">
+            ${tagsHtml}
+          </div>
+          <div class="work-title">${proj.title}</div>
+          <p class="work-finding">${proj.finding}</p>
+        </div>
+        <div class="work-arrow">→</div>
+      `;
+
+      workIndex.appendChild(card);
+      
+      // Register with the reveal observer
+      if (typeof observer !== 'undefined') {
+        observer.observe(card);
+      }
+      
+      // Register hover handlers for custom cursor
+      card.addEventListener('mouseenter', () => {
+        const ring = document.getElementById('cursor-ring');
+        if (ring) ring.classList.add('hovered');
+      });
+      card.addEventListener('mouseleave', () => {
+        const ring = document.getElementById('cursor-ring');
+        if (ring) ring.classList.remove('hovered');
+      });
+    });
+  } catch (err) {
+    console.error('Failed to load projects.json:', err);
+  }
+});
 </script>
 </body>
 </html>
