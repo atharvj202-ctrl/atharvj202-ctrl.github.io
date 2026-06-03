@@ -159,7 +159,9 @@ nav.scrolled .nav-name { opacity: 1; }
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   padding: 0 60px 80px;
   position: relative;
 }
@@ -175,6 +177,7 @@ nav.scrolled .nav-name { opacity: 1; }
   opacity: 0;
   transform: translateY(12px);
   animation: fadeUp 0.7s var(--ease) 0.3s forwards;
+  text-align: center;
 }
 
 .hero-name {
@@ -188,6 +191,7 @@ nav.scrolled .nav-name { opacity: 1; }
   opacity: 0;
   transform: translateY(16px);
   animation: fadeUp 0.8s var(--ease) 0.5s forwards;
+  text-align: center;
 }
 
 .hero-name em {
@@ -197,15 +201,20 @@ nav.scrolled .nav-name { opacity: 1; }
 
 .hero-bottom {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
   opacity: 0;
   transform: translateY(12px);
   animation: fadeUp 0.7s var(--ease) 0.8s forwards;
+  width: 100%;
 }
 
 .hero-positioning {
-  max-width: 480px;
+  max-width: 560px;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .hero-positioning p {
@@ -215,12 +224,13 @@ nav.scrolled .nav-name { opacity: 1; }
   line-height: 1.5;
   color: var(--text-muted);
   font-style: italic;
+  text-align: center;
 }
 
 .hero-cta {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   gap: 16px;
 }
 
@@ -238,7 +248,7 @@ nav.scrolled .nav-name { opacity: 1; }
   border: none;
   position: relative;
   overflow: hidden;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.25s var(--ease);
 }
 
 .btn-primary::before {
@@ -247,7 +257,7 @@ nav.scrolled .nav-name { opacity: 1; }
   inset: 0;
   background: var(--gold);
   transform: scaleX(0);
-  transform-origin: left;
+  transform-origin: center;
   transition: transform 0.4s var(--ease);
 }
 
@@ -259,6 +269,7 @@ nav.scrolled .nav-name { opacity: 1; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-faint);
+  text-align: center;
 }
 
 .hero-rule {
@@ -286,14 +297,15 @@ section {
   color: var(--gold);
   margin-bottom: 64px;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 16px;
 }
 
+.section-label::before,
 .section-label::after {
   content: '';
-  flex: 1;
-  max-width: 80px;
+  width: 40px;
   height: 1px;
   background: var(--gold);
   opacity: 0.4;
@@ -307,6 +319,7 @@ section {
   letter-spacing: -0.01em;
   color: var(--green-deep);
   margin-bottom: 24px;
+  text-align: center;
 }
 
 /* ── HOW I THINK ────────────────────────────────── */
@@ -316,6 +329,7 @@ section {
 }
 
 #think .section-label { color: var(--gold-light); }
+#think .section-label::before,
 #think .section-label::after { background: var(--gold-light); }
 #think .section-heading { color: #F7F5F0; }
 
@@ -328,6 +342,9 @@ section {
   max-width: 560px;
   margin-bottom: 80px;
   line-height: 1.6;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .think-grid {
@@ -343,6 +360,7 @@ section {
   position: relative;
   overflow: hidden;
   transition: background 0.4s var(--ease);
+  text-align: center;
 }
 
 .think-card::before {
@@ -365,6 +383,7 @@ section {
   line-height: 1;
   margin-bottom: 24px;
   position: relative;
+  text-align: center;
 }
 
 .think-card-title {
@@ -376,6 +395,7 @@ section {
   color: var(--gold-light);
   margin-bottom: 16px;
   position: relative;
+  text-align: center;
 }
 
 .think-card-body {
@@ -388,6 +408,7 @@ section {
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 0.4s var(--ease) 0.05s, transform 0.4s var(--ease) 0.05s;
+  text-align: center;
 }
 
 .think-card:hover .think-card-body {
@@ -405,33 +426,38 @@ section {
 }
 
 .work-item {
-  display: grid;
-  grid-template-columns: 80px 1fr auto;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   padding: 40px 0;
   border-bottom: 1px solid var(--rule);
   text-decoration: none;
   color: inherit;
   position: relative;
-  transition: padding-left 0.4s var(--ease);
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease);
 }
 
 .work-item:first-child { border-top: 1px solid var(--rule); }
 
-.work-item:hover { padding-left: 12px; }
+.work-item:hover {
+  transform: translateY(-4px);
+  background: rgba(28, 61, 46, 0.02);
+}
 
 .work-num {
   font-family: var(--font-head);
   font-size: 14px;
   font-weight: 300;
   color: var(--text-faint);
-  padding-top: 6px;
+  margin-bottom: 8px;
 }
 
-.work-content { flex: 1; }
+.work-content { width: 100%; }
 
 .work-tags {
   display: flex;
+  justify-content: center;
   gap: 8px;
   margin-bottom: 12px;
   flex-wrap: wrap;
@@ -461,13 +487,16 @@ section {
 .work-title::after {
   content: '';
   position: absolute;
-  bottom: -3px; left: 0;
+  bottom: -3px; left: 50%;
   width: 0; height: 1px;
   background: var(--gold);
-  transition: width 0.5s var(--ease);
+  transition: width 0.5s var(--ease), left 0.5s var(--ease);
 }
 
-.work-item:hover .work-title::after { width: 100%; }
+.work-item:hover .work-title::after {
+  width: 100%;
+  left: 0;
+}
 
 .work-finding {
   font-family: var(--font-head);
@@ -477,24 +506,17 @@ section {
   color: var(--text-muted);
   max-width: 560px;
   line-height: 1.6;
-  margin-top: 8px;
+  margin: 8px auto 0;
   opacity: 0;
   transform: translateY(4px);
   transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+  text-align: center;
 }
 
 .work-item:hover .work-finding { opacity: 1; transform: translateY(0); }
 
 .work-arrow {
-  font-size: 20px;
-  color: var(--text-faint);
-  padding-top: 8px;
-  transition: color 0.3s, transform 0.3s var(--ease);
-}
-
-.work-item:hover .work-arrow {
-  color: var(--gold);
-  transform: translateX(6px);
+  display: none;
 }
 
 /* ── CASE STUDY PAGE (in-page sections) ─────────── */
@@ -509,6 +531,7 @@ section {
 .cs-back {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   font-size: 12px;
   letter-spacing: 0.1em;
@@ -517,11 +540,12 @@ section {
   text-decoration: none;
   margin-bottom: 80px;
   transition: color 0.25s;
+  width: 100%;
 }
 
 .cs-back:hover { color: var(--green-deep); }
 
-.cs-header { margin-bottom: 80px; }
+.cs-header { margin-bottom: 80px; text-align: center; }
 
 .cs-client {
   font-family: var(--font-body);
@@ -531,6 +555,7 @@ section {
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .cs-title {
@@ -541,10 +566,12 @@ section {
   letter-spacing: -0.02em;
   color: var(--green-deep);
   margin-bottom: 32px;
+  text-align: center;
 }
 
 .cs-meta {
   display: flex;
+  justify-content: center;
   gap: 48px;
   padding-top: 32px;
   border-top: 1px solid var(--rule);
@@ -557,6 +584,7 @@ section {
   text-transform: uppercase;
   color: var(--text-faint);
   margin-bottom: 6px;
+  text-align: center;
 }
 
 .cs-meta-item span {
@@ -564,11 +592,12 @@ section {
   font-size: 16px;
   font-weight: 400;
   color: var(--text);
+  text-align: center;
 }
 
-.cs-body { max-width: 760px; }
+.cs-body { max-width: 760px; margin: 0 auto; text-align: center; }
 
-.cs-section { margin-bottom: 72px; }
+.cs-section { margin-bottom: 72px; text-align: center; }
 
 .cs-section-label {
   font-size: 10px;
@@ -576,6 +605,19 @@ section {
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.cs-section-label::before,
+.cs-section-label::after {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.4;
 }
 
 .cs-section h3 {
@@ -585,6 +627,7 @@ section {
   color: var(--green-deep);
   margin-bottom: 16px;
   line-height: 1.3;
+  text-align: center;
 }
 
 .cs-section p {
@@ -593,6 +636,7 @@ section {
   font-weight: 300;
   line-height: 1.85;
   color: var(--text-muted);
+  text-align: center;
 }
 
 .cs-callout {
@@ -600,14 +644,11 @@ section {
   padding: 40px 48px;
   background: var(--green-deep);
   position: relative;
+  text-align: center;
 }
 
 .cs-callout::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 3px;
-  background: var(--gold);
+  display: none;
 }
 
 .cs-callout p {
@@ -617,6 +658,7 @@ section {
   font-style: italic;
   color: #F7F5F0;
   line-height: 1.6;
+  text-align: center;
 }
 
 .cs-decisions {
@@ -631,6 +673,7 @@ section {
   border: 1px solid var(--rule);
   position: relative;
   transition: border-color 0.3s;
+  text-align: center;
 }
 
 .cs-decision:hover { border-color: var(--gold); }
@@ -642,6 +685,7 @@ section {
   color: var(--gold);
   opacity: 0.3;
   margin-bottom: 12px;
+  text-align: center;
 }
 
 .cs-decision h4 {
@@ -652,6 +696,7 @@ section {
   text-transform: uppercase;
   color: var(--green-deep);
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .cs-decision p {
@@ -659,6 +704,7 @@ section {
   font-weight: 300;
   line-height: 1.7;
   color: var(--text-muted);
+  text-align: center;
 }
 
 .cs-stat-row {
@@ -668,6 +714,7 @@ section {
   padding: 32px 0;
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
+  justify-content: center;
 }
 
 .cs-stat { text-align: center; flex: 1; }
@@ -680,6 +727,7 @@ section {
   color: var(--green-deep);
   line-height: 1;
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .cs-stat span {
@@ -687,16 +735,26 @@ section {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-faint);
+  text-align: center;
 }
 
 /* ── CONTENT STRATEGY LAYER ─────────────────────── */
 .cs-content-header {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   margin: 56px 0 28px;
   padding-top: 48px;
   border-top: 1px solid var(--rule);
+}
+
+.cs-content-header::before,
+.cs-content-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
 }
 
 .cs-content-header-label {
@@ -708,9 +766,7 @@ section {
 }
 
 .cs-content-header-rule {
-  flex: 1;
-  height: 1px;
-  background: var(--rule);
+  display: none;
 }
 
 .cs-content-title {
@@ -720,6 +776,7 @@ section {
   color: var(--green-deep);
   line-height: 1.2;
   margin-bottom: 12px;
+  text-align: center;
 }
 
 .cs-content-title em {
@@ -734,7 +791,8 @@ section {
   line-height: 1.8;
   color: var(--text-muted);
   max-width: 680px;
-  margin-bottom: 32px;
+  margin: 0 auto 32px;
+  text-align: center;
 }
 
 /* Gap grid */
@@ -749,6 +807,7 @@ section {
   padding: 20px 24px;
   border: 1px solid var(--rule);
   transition: border-color 0.3s;
+  text-align: center;
 }
 
 .cs-gap-item:hover { border-color: var(--gold); }
@@ -759,6 +818,7 @@ section {
   text-transform: uppercase;
   color: var(--text-faint);
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .cs-gap-title {
@@ -768,6 +828,7 @@ section {
   color: var(--green-deep);
   margin-bottom: 6px;
   line-height: 1.3;
+  text-align: center;
 }
 
 .cs-gap-body {
@@ -775,6 +836,7 @@ section {
   font-weight: 300;
   line-height: 1.7;
   color: var(--text-muted);
+  text-align: center;
 }
 
 /* Pillar list */
@@ -784,12 +846,13 @@ section {
 }
 
 .cs-pillar-row {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 24px;
-  padding: 18px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 24px 0;
   border-bottom: 1px solid var(--rule);
-  align-items: start;
 }
 
 .cs-pillar-name {
@@ -799,7 +862,8 @@ section {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--green-deep);
-  padding-top: 2px;
+  padding-top: 0;
+  text-align: center;
 }
 
 .cs-pillar-body {
@@ -807,6 +871,7 @@ section {
   font-weight: 300;
   line-height: 1.75;
   color: var(--text-muted);
+  text-align: center;
 }
 
 /* Flow steps */
@@ -822,6 +887,7 @@ section {
   background: var(--bg);
   padding: 28px 24px;
   position: relative;
+  text-align: center;
 }
 
 .cs-flow-pct {
@@ -832,6 +898,7 @@ section {
   opacity: 0.5;
   line-height: 1;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .cs-flow-name {
@@ -841,6 +908,7 @@ section {
   text-transform: uppercase;
   color: var(--green-deep);
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .cs-flow-body {
@@ -848,6 +916,7 @@ section {
   font-weight: 300;
   line-height: 1.7;
   color: var(--text-muted);
+  text-align: center;
 }
 
 /* What works / what doesn't */
@@ -862,6 +931,7 @@ section {
 .cs-split-col {
   background: var(--bg);
   padding: 24px;
+  text-align: center;
 }
 
 .cs-split-col-label {
@@ -870,6 +940,7 @@ section {
   text-transform: uppercase;
   margin-bottom: 16px;
   font-weight: 500;
+  text-align: center;
 }
 
 .cs-split-col-label.works { color: var(--green-light); }
@@ -878,6 +949,8 @@ section {
 .cs-split-col ul {
   list-style: none;
   padding: 0;
+  display: inline-block;
+  text-align: left;
 }
 
 .cs-split-col ul li {
@@ -885,9 +958,10 @@ section {
   font-weight: 300;
   line-height: 1.65;
   color: var(--text-muted);
-  padding-left: 14px;
+  padding-left: 18px;
   position: relative;
   margin-bottom: 8px;
+  text-align: left;
 }
 
 .cs-split-col.works-col ul li::before {
@@ -930,6 +1004,7 @@ section {
   background: var(--bg-warm);
   padding: 40px 36px;
   transition: background 0.3s;
+  text-align: center;
 }
 
 .pov-card:hover { background: var(--bg); }
@@ -940,6 +1015,7 @@ section {
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .pov-card h3 {
@@ -949,6 +1025,7 @@ section {
   line-height: 1.35;
   color: var(--green-deep);
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .pov-card p {
@@ -956,6 +1033,7 @@ section {
   font-weight: 300;
   line-height: 1.8;
   color: var(--text-muted);
+  text-align: center;
 }
 
 .pov-implication {
@@ -967,6 +1045,7 @@ section {
   color: var(--green-light);
   padding-top: 20px;
   border-top: 1px solid var(--rule);
+  text-align: center;
 }
 
 /* ── ABOUT ──────────────────────────────────────── */
@@ -975,13 +1054,18 @@ section {
 }
 
 .about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 120px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  gap: 48px;
 }
 
-.about-left { position: sticky; top: 120px; }
+.about-left {
+  text-align: center;
+}
 
 .about-initials {
   font-family: var(--font-head);
@@ -990,7 +1074,8 @@ section {
   color: var(--green-deep);
   opacity: 0.08;
   line-height: 1;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .about-title {
@@ -1000,6 +1085,7 @@ section {
   color: var(--green-deep);
   line-height: 1.3;
   margin-bottom: 24px;
+  text-align: center;
 }
 
 .about-location {
@@ -1007,6 +1093,11 @@ section {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-faint);
+  text-align: center;
+}
+
+.about-right {
+  width: 100%;
 }
 
 .about-right p {
@@ -1016,6 +1107,7 @@ section {
   line-height: 1.75;
   color: var(--text-muted);
   margin-bottom: 24px;
+  text-align: center;
 }
 
 .about-right p strong {
@@ -1027,6 +1119,8 @@ section {
   margin-top: 48px;
   padding-top: 48px;
   border-top: 1px solid var(--rule);
+  text-align: center;
+  width: 100%;
 }
 
 .about-note p {
@@ -1037,6 +1131,7 @@ section {
   color: var(--text-muted);
   font-style: normal;
   font-size: 15px;
+  text-align: center;
 }
 
 .about-credentials {
@@ -1044,6 +1139,10 @@ section {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .credential-row {
@@ -1053,6 +1152,8 @@ section {
   padding: 12px 0;
   border-bottom: 1px solid var(--rule);
   font-size: 13px;
+  text-align: left;
+  width: 100%;
 }
 
 .credential-row span:first-child { color: var(--text-muted); }
@@ -1168,8 +1269,8 @@ footer p {
     gap: 12px;
     min-width: 0;
   }
-  .hero-bottom { flex-direction: column; align-items: flex-start; gap: 32px; }
-  .hero-cta { align-items: flex-start; }
+  .hero-bottom { flex-direction: column; align-items: center; gap: 32px; }
+  .hero-cta { align-items: center; }
   .hero-eyebrow,
   .hero-name,
   .hero-bottom {
@@ -1183,7 +1284,7 @@ footer p {
     opacity: 1;
     transform: none;
   }
-  .work-item { grid-template-columns: 48px 1fr auto; }
+  .work-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
   .about-left { position: static; }
   .pov-grid { grid-template-columns: 1fr; }
@@ -1243,8 +1344,10 @@ footer p {
     padding: 36px 28px;
   }
   .work-item {
-    grid-template-columns: 36px 1fr;
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     padding: 34px 0;
   }
   .work-arrow {
@@ -1285,7 +1388,7 @@ footer p {
     gap: 20px;
   }
   .cs-stat {
-    text-align: left;
+    text-align: center;
   }
   .cs-decision,
   .cs-gap-item,
@@ -1294,12 +1397,13 @@ footer p {
     padding: 24px 20px;
   }
   .cs-content-header {
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
     gap: 12px;
+    justify-content: center;
   }
   .cs-content-header-rule {
-    width: 100%;
+    display: none;
   }
   .about-initials {
     font-size: 96px;
@@ -1308,9 +1412,10 @@ footer p {
     font-size: 19px;
   }
   .credential-row {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     gap: 6px;
+    text-align: center;
   }
   .contact-heading {
     font-size: clamp(42px, 13vw, 58px);
@@ -1331,6 +1436,8 @@ footer p {
 /* ── DYNAMIC MARKDOWN CASE STUDIES ───────────────── */
 #cs-md-body {
   max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
 }
 #cs-md-body h3 {
   font-family: var(--font-head);
@@ -1340,6 +1447,7 @@ footer p {
   margin-top: 48px;
   margin-bottom: 16px;
   line-height: 1.3;
+  text-align: center;
 }
 #cs-md-body p {
   font-family: var(--font-body);
@@ -1348,11 +1456,14 @@ footer p {
   line-height: 1.85;
   color: var(--text-muted);
   margin-bottom: 24px;
+  text-align: center;
 }
 #cs-md-body ul {
   list-style: none;
   padding: 0;
   margin-bottom: 32px;
+  display: inline-block;
+  text-align: left;
 }
 #cs-md-body ul li {
   font-family: var(--font-body);
