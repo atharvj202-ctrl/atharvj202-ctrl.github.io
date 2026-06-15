@@ -1,22 +1,12 @@
 [
   {
-    "id": "paws-website",
-    "num": "07",
-    "tags": ["Brand Audit", "Website Analysis", "UX/UI Audit"],
-    "title": "PawsIndia Website Strategic Audit",
-    "finding": "\"Conducted a comprehensive strategic audit of PawsIndia's website, analyzing brand positioning, UX/UI, conversion optimization, trust architecture, SEO, and competitive positioning.\"",
-    "client": "PawsIndia · Website Analysis · Mumbai",
+    "id": "paws-combined",
+    "num": "04",
+    "tags": ["Brand Audit", "Website Analysis", "Instagram Strategy", "Growth Roadmap"],
+    "title": "PawsIndia Website & Instagram Strategic Audit",
+    "finding": "\"Conducted a comprehensive website and Instagram strategy audit for PawsIndia, evaluating UX/UI, conversion optimization, content pillars, and growth roadmap.\"",
+    "client": "PawsIndia · Strategic Audits · Mumbai",
     "type": "markdown",
-    "markdownFile": "projects/paws-website-audit.md"
-  },
-  {
-    "id": "paws-instagram",
-    "num": "08",
-    "tags": ["Instagram Audit", "Content Strategy", "Growth Roadmap"],
-    "title": "PawsIndia Instagram Content Strategy Audit",
-    "finding": "\"Performed an in-depth Instagram content and growth audit for PawsIndia, evaluating content pillars, engagement strategy, community building, and content formats.\"",
-    "client": "PawsIndia · Instagram Audit · Mumbai",
-    "type": "markdown",
-    "markdownFile": "projects/paws-instagram-audit.md"
+    "markdownFile": "projects/paws-combined-audit.md"
   }
 ]
