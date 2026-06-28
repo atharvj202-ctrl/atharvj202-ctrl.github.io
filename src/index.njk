@@ -1,0 +1,46 @@
+---
+layout: base.njk
+---
+
+<section id="hero" class="hero">
+  <div class="container">
+    <p class="eyebrow">Brand Strategist & Positioning Consultant</p>
+    <h1 class="hero-title">Atharv Joshi</h1>
+    <p class="hero-sub">I find what a brand provably owns — and build everything from there.</p>
+    <a class="btn-primary" href="#work">See my work</a>
+  </div>
+</section>
+
+<section id="think" class="section think">
+  <div class="container">
+    <h2 class="section-heading">How I think</h2>
+    <p class="lead">I combine rigorous brand strategy with practical growth and product thinking to create clear positioning and measurable outcomes.</p>
+  </div>
+</section>
+
+<section id="work" class="section work">
+  <div class="container">
+    <h2 class="section-heading">Selected Work</h2>
+
+    <div class="projects-grid">
+      {% for p in collections.projects | reverse %}
+        <article class="project-card">
+          <a href="{{ p.url }}">
+            <div class="project-meta">
+              <span class="project-num">{{ p.data.num or "" }}</span>
+              <h3 class="project-title">{{ p.data.title }}</h3>
+            </div>
+            <p class="project-finding">{{ p.data.finding }}</p>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section contact">
+  <div class="container">
+    <h2 class="section-heading">Get in touch</h2>
+    <p class="lead">Available for consulting and select engagements. <a href="mailto:atharvj202@gmail.com">atharvj202@gmail.com</a></p>
+  </div>
+</section>
