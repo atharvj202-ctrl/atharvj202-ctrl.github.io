@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{% if title %}{{ title }} — {% endif %}Atharv Joshi</title>
+    <meta name="description" content="Atharv Joshi — Brand Strategist & Positioning Consultant">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Satoshi:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <script defer src="/assets/js/main.js"></script>
+  </head>
+  <body>
+    {% include "header.njk" %}
+
+    <main id="main" class="site-main">
+      {{ content | safe }}
+    </main>
+
+    {% include "footer.njk" %}
+  </body>
+</html>
