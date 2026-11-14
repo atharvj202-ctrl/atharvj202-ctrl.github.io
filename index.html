@@ -3,1719 +3,450 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atharv Joshi — Brand Strategist · Content Systems · Dubai</title>
-<meta name="description" content="Brand strategist in Dubai. I find what a brand provably owns, then build the content system that makes it visible.">
+<title>Atharv Joshi — Brand Strategist, Dubai</title>
+<meta name="description" content="Brand strategist in Dubai. I work out why people decide what they decide, then build positioning and content systems around the answer.">
 <meta property="og:title" content="Atharv Joshi — Brand Strategist">
-<meta property="og:description" content="I find what a brand provably owns — and build everything from there.">
-
-<!-- Fonts -->
+<meta property="og:description" content="Positioning, consumer psychology and content systems for brands where trust is the hard part.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Satoshi:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* ── RESET & BASE ─────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  --green-deep:   #1C3D2E;
-  --green-mid:    #2A4A38;
-  --green-light:  #3D6B50;
-  --gold:         #A68B2E;
-  --gold-light:   #C4A84A;
-  --bg:           #F7F5F0;
-  --bg-warm:      #F0EDE6;
-  --text:         #1A1A1A;
-  --text-muted:   #5A5A52;
-  --text-faint:   #9A9A90;
-  --rule:         rgba(28,61,46,0.15);
-  --font-head:    'Cormorant Garamond', Georgia, serif;
-  --font-body:    'Satoshi', 'Helvetica Neue', sans-serif;
-  --ease:         cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --paper: #F2F3F0;
+  --paper-2: #E8EAE5;
+  --ink: #191C22;
+  --slate: #5B616B;
+  --rule: #D5D8D2;
+  --blue: #2E3FD1;
+  --blue-soft: #DDE1FA;
+  --sans: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --serif: 'Newsreader', Georgia, serif;
+  --wrap: 1200px;
+  --gutter: clamp(20px, 5vw, 56px);
 }
-
+*, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
 body {
-  font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--text);
-  cursor: none;
-  overflow-x: hidden;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
-
-img, svg, video, canvas {
-  max-width: 100%;
-}
-
-/* ── CUSTOM CURSOR ───────────────────────────────── */
-#cursor-dot {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: var(--green-deep);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: background 0.2s;
-}
-
-#cursor-ring {
-  position: fixed;
-  width: 36px;
-  height: 36px;
-  border: 1.5px solid var(--green-deep);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width 0.35s var(--ease), height 0.35s var(--ease),
-              border-color 0.35s, opacity 0.35s, background 0.35s;
-  opacity: 0.7;
-}
-
-#cursor-ring.hovered {
-  width: 56px;
-  height: 56px;
-  background: rgba(28,61,46,0.06);
-  border-color: var(--gold);
-  opacity: 1;
-}
-
-#cursor-ring.clicked {
-  width: 28px;
-  height: 28px;
-  background: rgba(166,139,46,0.12);
-}
-
-/* ── NAV ─────────────────────────────────────────── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 28px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background 0.4s var(--ease), padding 0.4s var(--ease),
-              backdrop-filter 0.4s, box-shadow 0.4s;
-}
-
-nav.scrolled {
-  padding: 18px 60px;
-  background: rgba(247,245,240,0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 var(--rule);
-}
-
-.nav-name {
-  font-family: var(--font-head);
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  color: var(--green-deep);
-  text-decoration: none;
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-
-nav.scrolled .nav-name { opacity: 1; }
-
-.nav-links {
-  display: flex;
-  gap: 40px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: color 0.25s;
-  position: relative;
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px; left: 0;
-  width: 0; height: 1px;
-  background: var(--gold);
-  transition: width 0.3s var(--ease);
-}
-
-.nav-links a:hover { color: var(--green-deep); }
-.nav-links a:hover::after { width: 100%; }
-
-/* ── HERO ────────────────────────────────────────── */
-#hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 60px 80px;
-  position: relative;
-}
-
-.hero-eyebrow {
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 24px;
-  opacity: 0;
-  transform: translateY(12px);
-  animation: fadeUp 0.7s var(--ease) 0.3s forwards;
-  text-align: center;
-}
-
-.hero-name {
-  font-family: var(--font-head);
-  font-size: clamp(72px, 10vw, 130px);
-  font-weight: 300;
-  line-height: 0.92;
-  letter-spacing: -0.02em;
-  color: var(--green-deep);
-  margin-bottom: 40px;
-  opacity: 0;
-  transform: translateY(16px);
-  animation: fadeUp 0.8s var(--ease) 0.5s forwards;
-  text-align: center;
-}
-
-.hero-name em {
-  font-style: italic;
-  color: var(--green-light);
-}
-
-.hero-bottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 32px;
-  opacity: 0;
-  transform: translateY(12px);
-  animation: fadeUp 0.7s var(--ease) 0.8s forwards;
-  width: 100%;
-}
-
-.hero-positioning {
-  max-width: 560px;
-  text-align: center;
-  margin: 0 auto;
-}
-
-.hero-positioning p {
-  font-family: var(--font-head);
-  font-size: 22px;
-  font-weight: 300;
-  line-height: 1.5;
-  color: var(--text-muted);
-  font-style: italic;
-  text-align: center;
-}
-
-.hero-cta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-.btn-primary {
-  display: inline-block;
-  padding: 14px 36px;
-  background: var(--green-deep);
-  color: #F7F5F0;
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: none;
-  position: relative;
-  overflow: hidden;
-  transition: color 0.3s, transform 0.25s var(--ease);
-}
-
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--gold);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.4s var(--ease);
-}
-
-.btn-primary:hover::before { transform: scaleX(1); }
-.btn-primary span { position: relative; z-index: 1; }
-
-.hero-scroll-hint {
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  text-align: center;
-}
-
-.hero-rule {
-  position: absolute;
-  bottom: 0; left: 60px; right: 60px;
-  height: 1px;
-  background: var(--rule);
-}
-
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ── SECTION BASE ───────────────────────────────── */
-section {
-  padding: 120px 60px;
-}
-
-.section-label {
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 64px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-}
-
-.section-label::before,
-.section-label::after {
-  content: '';
-  width: 40px;
-  height: 1px;
-  background: var(--gold);
-  opacity: 0.4;
-}
-
-.section-heading {
-  font-family: var(--font-head);
-  font-size: clamp(42px, 5vw, 64px);
-  font-weight: 300;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  color: var(--green-deep);
-  margin-bottom: 24px;
-  text-align: center;
-}
-
-/* ── HOW I THINK ────────────────────────────────── */
-#think {
-  background: var(--green-deep);
-  color: var(--bg);
-}
-
-#think .section-label { color: var(--gold-light); }
-#think .section-label::before,
-#think .section-label::after { background: var(--gold-light); }
-#think .section-heading { color: #F7F5F0; }
-
-.think-intro {
-  font-family: var(--font-head);
-  font-size: 22px;
-  font-weight: 300;
-  font-style: italic;
-  color: rgba(247,245,240,0.6);
-  max-width: 560px;
-  margin-bottom: 80px;
-  line-height: 1.6;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.think-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(247,245,240,0.1);
-}
-
-.think-card {
-  background: var(--green-deep);
-  padding: 48px 40px;
-  position: relative;
-  overflow: hidden;
-  transition: background 0.4s var(--ease);
-  text-align: center;
-}
-
-.think-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--green-mid);
-  opacity: 0;
-  transition: opacity 0.4s var(--ease);
-}
-
-.think-card:hover::before { opacity: 1; }
-
-.think-card-num {
-  font-family: var(--font-head);
-  font-size: 48px;
-  font-weight: 300;
-  color: var(--gold);
-  opacity: 0.35;
-  line-height: 1;
-  margin-bottom: 24px;
-  position: relative;
-  text-align: center;
-}
-
-.think-card-title {
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  margin-bottom: 16px;
-  position: relative;
-  text-align: center;
-}
-
-.think-card-body {
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.75;
-  color: rgba(247,245,240,0.65);
-  position: relative;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.4s var(--ease) 0.05s, transform 0.4s var(--ease) 0.05s;
-  text-align: center;
-}
-
-.think-card:hover .think-card-body {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ── WORK / CASE STUDIES ────────────────────────── */
-#work {
-  background: var(--bg);
-}
-
-.work-index {
-  margin-top: 16px;
-}
-
-.work-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 40px 0;
-  border-bottom: 1px solid var(--rule);
-  text-decoration: none;
-  color: inherit;
-  position: relative;
-  transition: transform 0.3s var(--ease), background 0.3s var(--ease);
-}
-
-.work-item:first-child { border-top: 1px solid var(--rule); }
-
-.work-item:hover {
-  transform: translateY(-4px);
-  background: rgba(28, 61, 46, 0.02);
-}
-
-.work-num {
-  font-family: var(--font-head);
-  font-size: 14px;
-  font-weight: 300;
-  color: var(--text-faint);
-  margin-bottom: 8px;
-}
-
-.work-content { width: 100%; }
-
-.work-tags {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 12px;
-  flex-wrap: wrap;
-}
-
-.work-tag {
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold);
-  padding: 3px 10px;
-  border: 1px solid rgba(166,139,46,0.3);
-}
-
-.work-title {
-  font-family: var(--font-head);
-  font-size: clamp(28px, 3.5vw, 44px);
-  font-weight: 300;
-  line-height: 1.15;
-  color: var(--green-deep);
-  margin-bottom: 12px;
-  position: relative;
-  display: inline-block;
-}
-
-.work-title::after {
-  content: '';
-  position: absolute;
-  bottom: -3px; left: 50%;
-  width: 0; height: 1px;
-  background: var(--gold);
-  transition: width 0.5s var(--ease), left 0.5s var(--ease);
-}
-
-.work-item:hover .work-title::after {
-  width: 100%;
-  left: 0;
-}
-
-.work-finding {
-  font-family: var(--font-head);
-  font-size: 16px;
-  font-weight: 300;
-  font-style: italic;
-  color: var(--text-muted);
-  max-width: 560px;
-  line-height: 1.6;
-  margin: 8px auto 0;
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
-  text-align: center;
-}
-
-.work-item:hover .work-finding { opacity: 1; transform: translateY(0); }
-
-.work-arrow {
-  display: none;
-}
-
-/* ── CASE STUDY PAGE (in-page sections) ─────────── */
-.case-study {
-  display: none;
-  background: var(--bg);
-  padding: 140px 60px 120px;
-}
-
-.case-study.active { display: block; }
-
-.cs-back {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  text-decoration: none;
-  margin-bottom: 80px;
-  transition: color 0.25s;
-  width: 100%;
-}
-
-.cs-back:hover { color: var(--green-deep); }
-
-.cs-header { margin-bottom: 80px; text-align: center; }
-
-.cs-client {
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.cs-title {
-  font-family: var(--font-head);
-  font-size: clamp(48px, 7vw, 88px);
-  font-weight: 300;
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-  color: var(--green-deep);
-  margin-bottom: 32px;
-  text-align: center;
-}
-
-.cs-meta {
-  display: flex;
-  justify-content: center;
-  gap: 48px;
-  padding-top: 32px;
-  border-top: 1px solid var(--rule);
-}
-
-.cs-meta-item label {
-  display: block;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  margin-bottom: 6px;
-  text-align: center;
-}
-
-.cs-meta-item span {
-  font-family: var(--font-head);
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--text);
-  text-align: center;
-}
-
-.cs-body { max-width: 760px; margin: 0 auto; text-align: center; }
-
-.cs-section { margin-bottom: 72px; text-align: center; }
-
-.cs-section-label {
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-}
-
-.cs-section-label::before,
-.cs-section-label::after {
-  content: '';
-  width: 30px;
-  height: 1px;
-  background: var(--gold);
-  opacity: 0.4;
-}
-
-.cs-section h3 {
-  font-family: var(--font-head);
-  font-size: 28px;
-  font-weight: 400;
-  color: var(--green-deep);
-  margin-bottom: 16px;
-  line-height: 1.3;
-  text-align: center;
-}
-
-.cs-section p {
-  font-family: var(--font-body);
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.85;
-  color: var(--text-muted);
-  text-align: center;
-}
-
-.cs-callout {
-  margin: 48px 0;
-  padding: 40px 48px;
-  background: var(--green-deep);
-  position: relative;
-  text-align: center;
-}
-
-.cs-callout::before {
-  display: none;
-}
-
-.cs-callout p {
-  font-family: var(--font-head);
-  font-size: 22px;
-  font-weight: 300;
-  font-style: italic;
-  color: #F7F5F0;
-  line-height: 1.6;
-  text-align: center;
-}
-
-.cs-decisions {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin-top: 32px;
-}
-
-.cs-decision {
-  padding: 32px;
-  border: 1px solid var(--rule);
-  position: relative;
-  transition: border-color 0.3s;
-  text-align: center;
-}
-
-.cs-decision:hover { border-color: var(--gold); }
-
-.cs-decision-num {
-  font-family: var(--font-head);
-  font-size: 36px;
-  font-weight: 300;
-  color: var(--gold);
-  opacity: 0.3;
-  margin-bottom: 12px;
-  text-align: center;
-}
-
-.cs-decision h4 {
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--green-deep);
-  margin-bottom: 8px;
-  text-align: center;
-}
-
-.cs-decision p {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.7;
-  color: var(--text-muted);
-  text-align: center;
-}
-
-.cs-stat-row {
-  display: flex;
-  gap: 40px;
-  margin: 40px 0;
-  padding: 32px 0;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  justify-content: center;
-}
-
-.cs-stat { text-align: center; flex: 1; }
-
-.cs-stat strong {
-  display: block;
-  font-family: var(--font-head);
-  font-size: 40px;
-  font-weight: 300;
-  color: var(--green-deep);
-  line-height: 1;
-  margin-bottom: 8px;
-  text-align: center;
-}
-
-.cs-stat span {
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  text-align: center;
-}
-
-/* ── CONTENT STRATEGY LAYER ─────────────────────── */
-.cs-content-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin: 56px 0 28px;
-  padding-top: 48px;
-  border-top: 1px solid var(--rule);
-}
-
-.cs-content-header::before,
-.cs-content-header::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--rule);
-}
-
-.cs-content-header-label {
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  white-space: nowrap;
-}
-
-.cs-content-header-rule {
-  display: none;
-}
-
-.cs-content-title {
-  font-family: var(--font-head);
-  font-size: 30px;
-  font-weight: 300;
-  color: var(--green-deep);
-  line-height: 1.2;
-  margin-bottom: 12px;
-  text-align: center;
-}
-
-.cs-content-title em {
-  font-style: italic;
-  color: var(--green-light);
-}
-
-.cs-content-intro {
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--text-muted);
-  max-width: 680px;
-  margin: 0 auto 32px;
-  text-align: center;
-}
-
-/* Gap grid */
-.cs-gap-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin: 24px 0;
-}
-
-.cs-gap-item {
-  padding: 20px 24px;
-  border: 1px solid var(--rule);
-  transition: border-color 0.3s;
-  text-align: center;
-}
-
-.cs-gap-item:hover { border-color: var(--gold); }
-
-.cs-gap-label {
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  margin-bottom: 8px;
-  text-align: center;
-}
-
-.cs-gap-title {
-  font-family: var(--font-head);
-  font-size: 15px;
-  font-weight: 400;
-  color: var(--green-deep);
-  margin-bottom: 6px;
-  line-height: 1.3;
-  text-align: center;
-}
-
-.cs-gap-body {
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 1.7;
-  color: var(--text-muted);
-  text-align: center;
-}
-
-/* Pillar list */
-.cs-pillar-list {
-  margin: 24px 0;
-  border-top: 1px solid var(--rule);
-}
-
-.cs-pillar-row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 12px;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--rule);
-}
-
-.cs-pillar-name {
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--green-deep);
-  padding-top: 0;
-  text-align: center;
-}
-
-.cs-pillar-body {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.75;
-  color: var(--text-muted);
-  text-align: center;
-}
-
-/* Flow steps */
-.cs-flow {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--rule);
-  margin: 24px 0;
-}
-
-.cs-flow-step {
-  background: var(--bg);
-  padding: 28px 24px;
-  position: relative;
-  text-align: center;
-}
-
-.cs-flow-pct {
-  font-family: var(--font-head);
-  font-size: 32px;
-  font-weight: 300;
-  color: var(--gold);
-  opacity: 0.5;
-  line-height: 1;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.cs-flow-name {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--green-deep);
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.cs-flow-body {
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 1.7;
-  color: var(--text-muted);
-  text-align: center;
-}
-
-/* What works / what doesn't */
-.cs-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--rule);
-  margin: 24px 0;
-}
-
-.cs-split-col {
-  background: var(--bg);
-  padding: 24px;
-  text-align: center;
-}
-
-.cs-split-col-label {
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  font-weight: 500;
-  text-align: center;
-}
-
-.cs-split-col-label.works { color: var(--green-light); }
-.cs-split-col-label.doesnt { color: #A0522D; }
-
-.cs-split-col ul {
-  list-style: none;
-  padding: 0;
-  display: inline-block;
-  text-align: left;
-}
-
-.cs-split-col ul li {
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 1.65;
-  color: var(--text-muted);
-  padding-left: 18px;
-  position: relative;
-  margin-bottom: 8px;
-  text-align: left;
-}
-
-.cs-split-col.works-col ul li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--green-light);
-  font-size: 11px;
-}
-
-.cs-split-col.doesnt-col ul li::before {
-  content: '×';
-  position: absolute;
-  left: 0;
-  color: #A0522D;
-  font-size: 11px;
-}
-
+body.sheet-open { overflow: hidden; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: var(--paper); padding: 8px 14px; z-index: 100; }
+.skip:focus { left: 8px; }
+
+/* Header */
+.site-head { position: sticky; top: 0; z-index: 20; background: rgba(242,243,240,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid transparent; transition: border-color .2s; }
+.site-head.scrolled { border-bottom-color: var(--rule); }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 24px; }
+.brand { font-weight: 700; font-size: 17px; text-decoration: none; letter-spacing: -0.01em; }
+.nav { display: flex; align-items: center; gap: 28px; }
+.nav a { text-decoration: none; font-size: 15px; color: var(--slate); }
+.nav a:hover { color: var(--ink); }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--sans); font-weight: 600; font-size: 15px; text-decoration: none; padding: 11px 20px; border-radius: 999px; border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper); cursor: pointer; transition: background .15s, color .15s; }
+.btn:hover { background: var(--blue); border-color: var(--blue); }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn.ghost:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.nav .btn { color: var(--paper); padding: 9px 18px; }
+@media (max-width: 720px) { .nav a:not(.btn) { display: none; } }
+
+/* Hero */
+.hero { padding: clamp(64px, 11vw, 140px) 0 clamp(56px, 8vw, 96px); }
+.hero h1 {
+  font-weight: 800;
+  font-size: clamp(42px, 7.4vw, 104px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  margin: 0;
+  max-width: 13.5em;
+}
+.hero h1 .q { display: block; color: var(--blue); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); margin-top: clamp(40px, 6vw, 72px); align-items: start; }
+.hero-lede { font-family: var(--serif); font-size: clamp(20px, 2vw, 24px); line-height: 1.45; margin: 0 0 32px; max-width: 34em; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.facts { margin: 0; display: grid; grid-template-columns: auto 1fr; border-top: 1px solid var(--ink); }
+.facts dt, .facts dd { padding: 13px 0; border-bottom: 1px solid var(--rule); margin: 0; font-size: 15px; }
+.facts dt { color: var(--slate); padding-right: 28px; }
+.facts dd { font-weight: 500; }
+@media (max-width: 820px) { .hero-grid { grid-template-columns: 1fr; } }
+
+/* Sections */
+section.block { padding: clamp(64px, 9vw, 120px) 0; border-top: 1px solid var(--rule); }
+.block-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 32px; margin-bottom: clamp(36px, 5vw, 56px); align-items: end; }
+.block-head h2 { font-size: clamp(32px, 4.2vw, 54px); line-height: 1.02; letter-spacing: -0.03em; margin: 0; font-weight: 700; }
+.block-head p { margin: 0; color: var(--slate); max-width: 36em; }
+@media (max-width: 820px) { .block-head { grid-template-columns: 1fr; } }
+
+/* Work index */
+.group-title { font-size: 15px; font-weight: 600; color: var(--slate); margin: 0 0 4px; }
+.work-list { list-style: none; margin: 0 0 56px; padding: 0; border-top: 1px solid var(--ink); }
+.work-list:last-child { margin-bottom: 0; }
+.work-row { border-bottom: 1px solid var(--rule); }
+.work-row button {
+  all: unset; box-sizing: border-box; cursor: pointer; width: 100%;
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.6fr) 200px; gap: 32px;
+  padding: 28px 0; align-items: baseline;
+}
+.work-row button:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+.work-name { font-size: clamp(24px, 2.6vw, 34px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; transition: color .15s; }
+.work-name small { display: block; font-size: 15px; font-weight: 400; letter-spacing: 0; color: var(--slate); margin-top: 6px; }
+.work-finding { font-family: var(--serif); font-size: 19px; line-height: 1.45; color: var(--ink); }
+.work-meta { font-size: 14px; color: var(--slate); text-align: right; }
+.work-meta .open { display: inline-block; margin-top: 10px; color: var(--ink); font-weight: 600; border-bottom: 1.5px solid currentColor; }
+.work-row button:hover .work-name, .work-row button:hover .open { color: var(--blue); }
+.badge { display: inline-block; font-size: 12px; font-weight: 600; background: var(--blue); color: #fff; padding: 3px 9px; border-radius: 999px; margin-bottom: 8px; }
 @media (max-width: 900px) {
-  .cs-gap-grid { grid-template-columns: 1fr; }
-  .cs-pillar-row { grid-template-columns: 1fr; gap: 6px; }
-  .cs-flow { grid-template-columns: 1fr; }
-  .cs-split { grid-template-columns: 1fr; }
+  .work-row button { grid-template-columns: 1fr; gap: 10px; }
+  .work-meta { text-align: left; }
 }
 
-/* ── POV / THINKING ────────────────────────────── */
-#pov {
-  background: var(--bg-warm);
-}
+/* Principles */
+.principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4vw, 56px); }
+.principle h3 { font-size: 24px; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 14px; padding-top: 18px; border-top: 3px solid var(--ink); }
+.principle p { font-family: var(--serif); font-size: 18px; line-height: 1.55; margin: 0 0 14px; color: #2c3038; }
+.principle .so { font-size: 15px; color: var(--blue); font-weight: 600; font-family: var(--sans); }
+@media (max-width: 860px) { .principles { grid-template-columns: 1fr; } }
 
-.pov-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--rule);
-  margin-top: 16px;
-}
+/* Writing */
+.posts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.post { background: #fff; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 16px; text-decoration: none; border: 1px solid var(--rule); transition: border-color .15s; }
+.post:hover { border-color: var(--ink); }
+.post h3 { font-size: 21px; line-height: 1.2; letter-spacing: -0.015em; margin: 0; }
+.post p { font-family: var(--serif); font-size: 17px; line-height: 1.5; margin: 0; color: #2c3038; flex: 1; }
+.post span { font-size: 14px; font-weight: 600; color: var(--blue); }
+@media (max-width: 900px) { .posts { grid-template-columns: 1fr; } }
 
-.pov-card {
-  background: var(--bg-warm);
-  padding: 40px 36px;
-  transition: background 0.3s;
-  text-align: center;
-}
+/* Experience */
+.timeline { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.timeline li { display: grid; grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1.3fr); gap: 32px; padding: 26px 0; border-bottom: 1px solid var(--rule); }
+.timeline time { font-size: 15px; color: var(--slate); }
+.timeline h3 { font-size: 21px; margin: 0; letter-spacing: -0.015em; line-height: 1.2; }
+.timeline h3 span { display: block; font-size: 15px; font-weight: 400; color: var(--slate); letter-spacing: 0; margin-top: 4px; }
+.timeline p { margin: 0; font-family: var(--serif); font-size: 18px; line-height: 1.5; }
+.skills { display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-top: 48px; }
+.skills h3 { margin: 0; font-size: 15px; color: var(--slate); font-weight: 500; }
+.skills ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.skills li { font-size: 14px; padding: 6px 13px; border: 1px solid var(--rule); border-radius: 999px; background: #fff; }
+@media (max-width: 820px) { .timeline li, .skills { grid-template-columns: 1fr; gap: 8px; } }
 
-.pov-card:hover { background: var(--bg); }
+/* Contact */
+.contact { background: var(--ink); color: var(--paper); padding: clamp(72px, 10vw, 128px) 0 48px; }
+.contact h2 { font-size: clamp(38px, 6vw, 80px); letter-spacing: -0.035em; line-height: 1; margin: 0 0 20px; font-weight: 800; max-width: 12em; }
+.contact p { color: #B9BEC6; max-width: 34em; margin: 0 0 40px; font-size: 18px; }
+.contact .mail { display: inline-block; font-size: clamp(22px, 3.2vw, 40px); font-weight: 600; color: #fff; text-decoration: none; border-bottom: 2px solid var(--blue); padding-bottom: 4px; letter-spacing: -0.02em; word-break: break-all; }
+.contact .mail:hover { color: #AEB8FF; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 12px 40px; margin-top: 40px; font-size: 16px; }
+.contact-links a { color: #fff; }
+.contact-links span { color: #8E949D; margin-right: 8px; }
+.foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 96px; padding-top: 24px; border-top: 1px solid #353A43; font-size: 14px; color: #8E949D; }
 
-.pov-brand {
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 16px;
-  text-align: center;
-}
+/* Case sheet */
+.scrim { position: fixed; inset: 0; background: rgba(25,28,34,0.45); opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 40; }
+.scrim.on { opacity: 1; pointer-events: auto; }
+.sheet { position: fixed; top: 0; right: 0; bottom: 0; width: min(940px, 100%); background: var(--paper); z-index: 50; overflow-y: auto; transform: translateX(100%); transition: transform .35s cubic-bezier(.2,.7,.2,1); box-shadow: -24px 0 60px rgba(25,28,34,0.18); visibility: hidden; }
+.sheet.on { transform: none; visibility: visible; }
+.sheet:focus { outline: none; }
+.sheet-bar { position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; padding: 16px clamp(20px, 5vw, 56px); background: rgba(242,243,240,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); z-index: 2; }
+.sheet-bar .crumb { font-size: 14px; color: var(--slate); }
+.sheet-close { font-family: var(--sans); font-size: 15px; font-weight: 600; background: none; border: 1.5px solid var(--ink); border-radius: 999px; padding: 7px 16px; cursor: pointer; color: var(--ink); }
+.sheet-close:hover { background: var(--ink); color: var(--paper); }
+.case-study { display: none; padding: clamp(32px, 5vw, 56px) clamp(20px, 5vw, 56px) 96px; }
+.case-study.on { display: block; }
+.cs-back { display: none; }
 
-.pov-card h3 {
-  font-family: var(--font-head);
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 1.35;
-  color: var(--green-deep);
-  margin-bottom: 16px;
-  text-align: center;
-}
+.cs-client { font-size: 15px; color: var(--slate); margin-bottom: 12px; }
+.cs-title { font-size: clamp(36px, 5vw, 60px); line-height: 1.02; letter-spacing: -0.035em; margin: 0 0 28px; font-weight: 800; }
+.cs-title br { display: none; }
+.cs-meta { display: flex; flex-wrap: wrap; gap: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); margin-bottom: 40px; }
+.cs-meta-item { padding: 14px 32px 14px 0; display: flex; flex-direction: column; gap: 2px; }
+.cs-meta-item label { font-size: 13px; color: var(--slate); }
+.cs-meta-item span { font-size: 15px; font-weight: 600; }
 
-.pov-card p {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--text-muted);
-  text-align: center;
-}
+.cs-body { font-family: var(--serif); font-size: 19px; line-height: 1.6; color: #23262d; }
+.cs-body p { margin: 0 0 16px; max-width: 40em; }
+.cs-body strong { font-weight: 500; color: var(--ink); }
 
-.pov-implication {
-  display: block;
-  margin-top: 20px;
-  font-family: var(--font-head);
-  font-size: 14px;
-  font-style: italic;
-  color: var(--green-light);
-  padding-top: 20px;
-  border-top: 1px solid var(--rule);
-  text-align: center;
-}
+.cs-tldr { background: var(--blue-soft); border-radius: 14px; padding: 26px 30px; margin: 0 0 48px; font-family: var(--sans); }
+.cs-tldr-label { font-weight: 700; font-size: 15px; margin-bottom: 10px; color: var(--blue); }
+.cs-tldr ul { margin: 0; padding: 0; list-style: none; }
+.cs-tldr li { font-size: 17px; line-height: 1.5; padding: 6px 0; }
+.cs-tldr li strong { font-weight: 700; }
 
-/* ── ABOUT ──────────────────────────────────────── */
-#about {
-  background: var(--bg);
-}
+.cs-stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0; margin: 0 0 48px; border-top: 1px solid var(--ink); }
+.cs-stat { padding: 18px 20px 18px 0; border-bottom: 1px solid var(--rule); font-family: var(--sans); }
+.cs-stat strong { display: block; font-size: 36px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: var(--ink); }
+.cs-stat span { font-size: 14px; color: var(--slate); }
 
-.about-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  gap: 48px;
-}
+.cs-section { margin: 0 0 44px; }
+.cs-section-label { font-family: var(--sans); font-weight: 700; font-size: 20px; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 12px; }
+.cs-section h3 { font-family: var(--sans); font-size: 26px; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 12px; font-weight: 700; color: var(--blue); }
+.cs-section h4 { font-family: var(--sans); font-size: 18px; margin: 0 0 8px; letter-spacing: -0.01em; }
 
-.about-left {
-  text-align: center;
-}
+.cs-callout { margin: 0 0 44px; padding: 4px 0 4px 26px; border-left: 4px solid var(--blue); }
+.cs-callout p { font-size: 23px; line-height: 1.45; font-style: italic; margin: 0; color: var(--ink); }
+.cs-callout p strong { font-style: normal; font-family: var(--sans); font-weight: 700; font-size: 18px; }
 
-.about-initials {
-  font-family: var(--font-head);
-  font-size: 120px;
-  font-weight: 300;
-  color: var(--green-deep);
-  opacity: 0.08;
-  line-height: 1;
-  margin-bottom: 20px;
-  text-align: center;
-}
+.cs-decisions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.cs-decision { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 22px 24px; }
+.cs-decision-num { font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--blue); margin-bottom: 6px; }
+.cs-decision p { font-size: 17px; line-height: 1.55; margin: 0; }
+@media (max-width: 700px) { .cs-decisions { grid-template-columns: 1fr; } }
 
-.about-title {
-  font-family: var(--font-head);
-  font-size: 36px;
-  font-weight: 300;
-  color: var(--green-deep);
-  line-height: 1.3;
-  margin-bottom: 24px;
-  text-align: center;
-}
+.cs-content-header { display: flex; align-items: center; gap: 16px; margin: 72px 0 18px; }
+.cs-content-header-label { font-family: var(--sans); font-weight: 700; font-size: 14px; color: var(--blue); white-space: nowrap; }
+.cs-content-header-rule { flex: 1; height: 1px; background: var(--rule); }
+.cs-content-title { font-family: var(--sans); font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.03em; line-height: 1.05; margin: 0 0 16px; font-weight: 800; }
+.cs-content-title em { font-style: normal; }
+.cs-content-intro { color: var(--slate); margin-bottom: 40px !important; }
 
-.about-location {
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  text-align: center;
-}
+.cs-pillar-list { border-top: 1px solid var(--ink); }
+.cs-pillar-row { display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+.cs-pillar-name { font-family: var(--sans); font-weight: 700; font-size: 17px; }
+.cs-pillar-body { font-size: 17px; line-height: 1.55; }
+@media (max-width: 700px) { .cs-pillar-row { grid-template-columns: 1fr; gap: 6px; } }
 
-.about-right {
-  width: 100%;
-}
+.cs-gap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.cs-gap-item { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 22px; }
+.cs-gap-label { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--slate); }
+.cs-gap-title { font-family: var(--sans); font-size: 19px; font-weight: 700; margin: 4px 0 10px; letter-spacing: -0.01em; }
+.cs-gap-body { font-size: 16px; line-height: 1.55; }
 
-.about-right p {
-  font-family: var(--font-head);
-  font-size: 20px;
-  font-weight: 300;
-  line-height: 1.75;
-  color: var(--text-muted);
-  margin-bottom: 24px;
-  text-align: center;
-}
+.cs-split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.cs-split-col { border-radius: 14px; padding: 22px 24px; }
+.doesnt-col { background: var(--paper-2); }
+.works-col { background: var(--blue-soft); }
+.cs-split-col-label { font-family: var(--sans); font-weight: 700; font-size: 16px; margin-bottom: 10px; }
+.cs-split-col-label.works { color: var(--blue); }
+.cs-split ul { margin: 0; padding-left: 18px; }
+.cs-split li { font-size: 16px; line-height: 1.5; margin-bottom: 8px; }
+@media (max-width: 700px) { .cs-split { grid-template-columns: 1fr; } }
 
-.about-right p strong {
-  color: var(--green-deep);
-  font-weight: 400;
-}
+.cs-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--ink); }
+.cs-flow-step { padding: 18px 20px 18px 0; }
+.cs-flow-step + .cs-flow-step { padding-left: 20px; border-left: 1px solid var(--rule); }
+.cs-flow-pct { font-family: var(--sans); font-size: 40px; font-weight: 800; letter-spacing: -0.03em; color: var(--blue); }
+.cs-flow-name { font-family: var(--sans); font-weight: 700; font-size: 18px; margin: 2px 0 8px; }
+.cs-flow-body { font-size: 16px; line-height: 1.55; }
+@media (max-width: 760px) { .cs-flow { grid-template-columns: 1fr; } .cs-flow-step + .cs-flow-step { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); } }
 
-.about-note {
-  margin-top: 48px;
-  padding-top: 48px;
-  border-top: 1px solid var(--rule);
-  text-align: center;
-  width: 100%;
+/* Page-load: one orchestrated moment */
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1, .hero-grid { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-grid { animation-delay: .15s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 }
-
-.about-note p {
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--text-muted);
-  font-style: normal;
-  font-size: 15px;
-  text-align: center;
-}
-
-.about-credentials {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.credential-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--rule);
-  font-size: 13px;
-  text-align: left;
-  width: 100%;
-}
-
-.credential-row span:first-child { color: var(--text-muted); }
-.credential-row span:last-child { color: var(--green-deep); font-weight: 400; }
-
-/* ── CONTACT ────────────────────────────────────── */
-#contact {
-  background: var(--green-deep);
-  text-align: center;
-  padding: 140px 60px;
-}
-
-.contact-label {
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  margin-bottom: 48px;
-}
-
-.contact-heading {
-  font-family: var(--font-head);
-  font-size: clamp(48px, 7vw, 88px);
-  font-weight: 300;
-  line-height: 1.05;
-  color: #F7F5F0;
-  margin-bottom: 40px;
-  letter-spacing: -0.02em;
-}
-
-.contact-heading em {
-  color: var(--gold-light);
-  font-style: italic;
-}
-
-.contact-links {
-  display: flex;
-  justify-content: center;
-  gap: 48px;
-  margin-top: 56px;
-}
-
-.contact-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  transition: opacity 0.3s;
-}
-
-.contact-link:hover { opacity: 0.7; }
-
-.contact-link-label {
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(247,245,240,0.4);
-}
-
-.contact-link-value {
-  font-family: var(--font-head);
-  font-size: 20px;
-  font-weight: 300;
-  color: #F7F5F0;
-}
-
-/* ── FOOTER ─────────────────────────────────────── */
-footer {
-  background: var(--green-deep);
-  padding: 24px 60px;
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid rgba(247,245,240,0.1);
-}
-
-footer p {
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  color: rgba(247,245,240,0.3);
-}
-
-/* ── SCROLL REVEAL ──────────────────────────────── */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-.reveal-delay-5 { transition-delay: 0.5s; }
-
-/* ── RESPONSIVE ─────────────────────────────────── */
-@media (max-width: 900px) {
-  nav, section, #hero, #contact, footer { padding-left: 28px; padding-right: 28px; }
-  nav { padding-top: 20px; padding-bottom: 20px; }
-  nav.scrolled { padding: 14px 28px; }
-  nav { justify-content: flex-end; }
-  .nav-name { display: none; }
-  .nav-links {
-    flex: 1 1 auto;
-    justify-content: space-between;
-    gap: 12px;
-    min-width: 0;
-  }
-  .hero-bottom { flex-direction: column; align-items: center; gap: 32px; }
-  .hero-cta { align-items: center; }
-  .hero-eyebrow,
-  .hero-name,
-  .hero-bottom {
-    opacity: 1;
-    transform: none;
-    animation: none;
-  }
-  .think-grid { grid-template-columns: 1fr; }
-  .think-card-body,
-  .work-finding {
-    opacity: 1;
-    transform: none;
-  }
-  .work-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
-  .about-grid { grid-template-columns: 1fr; gap: 48px; }
-  .about-left { position: static; }
-  .pov-grid { grid-template-columns: 1fr; }
-  .cs-decisions { grid-template-columns: 1fr; }
-  .cs-meta { flex-wrap: wrap; gap: 24px; }
-  .cs-body { max-width: none; }
-  .cs-stat-row { gap: 24px; }
-  .contact-links { flex-wrap: wrap; gap: 32px; }
-  #cursor-dot, #cursor-ring { display: none; }
-  body { cursor: auto; }
-}
-
-@media (max-width: 600px) {
-  nav, section, #hero, #contact, footer { padding-left: 20px; padding-right: 20px; }
-  nav { padding-top: 16px; padding-bottom: 16px; }
-  nav.scrolled { padding: 12px 20px; }
-  .nav-links {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    width: 100%;
-  }
-  .nav-links li {
-    min-width: 0;
-    text-align: center;
-  }
-  .nav-links a { font-size: 11px; letter-spacing: 0.06em; }
-  #hero {
-    min-height: 100svh;
-    padding-bottom: 56px;
-  }
-  .hero-eyebrow {
-    max-width: 100%;
-    line-height: 1.6;
-  }
-  .hero-name {
-    font-size: clamp(54px, 18vw, 72px);
-    line-height: 0.98;
-  }
-  .hero-positioning p {
-    font-size: 20px;
-  }
-  section {
-    padding-top: 88px;
-    padding-bottom: 88px;
-  }
-  .section-label {
-    margin-bottom: 40px;
-  }
-  .section-heading {
-    font-size: clamp(36px, 12vw, 46px);
-  }
-  .think-intro {
-    margin-bottom: 56px;
-  }
-  .think-card,
-  .pov-card {
-    padding: 36px 28px;
-  }
-  .work-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 34px 0;
-  }
-  .work-arrow {
-    display: none;
-  }
-  .work-title {
-    display: block;
-  }
-  .case-study {
-    padding: 112px 20px 88px;
-  }
-  .cs-back {
-    margin-bottom: 56px;
-  }
-  .cs-header {
-    margin-bottom: 56px;
-  }
-  .cs-title {
-    font-size: clamp(42px, 13vw, 56px);
-    line-height: 1;
-  }
-  .cs-meta {
-    flex-direction: column;
-    gap: 16px;
-  }
-  .cs-section {
-    margin-bottom: 56px;
-  }
-  .cs-callout {
-    margin: 36px 0;
-    padding: 32px 28px;
-  }
-  .cs-callout p {
-    font-size: 20px;
-  }
-  .cs-stat-row {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .cs-stat {
-    text-align: center;
-  }
-  .cs-decision,
-  .cs-gap-item,
-  .cs-flow-step,
-  .cs-split-col {
-    padding: 24px 20px;
-  }
-  .cs-content-header {
-    align-items: center;
-    flex-direction: row;
-    gap: 12px;
-    justify-content: center;
-  }
-  .cs-content-header-rule {
-    display: none;
-  }
-  .about-initials {
-    font-size: 96px;
-  }
-  .about-right p {
-    font-size: 19px;
-  }
-  .credential-row {
-    align-items: center;
-    flex-direction: column;
-    gap: 6px;
-    text-align: center;
-  }
-  .contact-heading {
-    font-size: clamp(42px, 13vw, 58px);
-  }
-  .contact-links {
-    flex-direction: column;
-    align-items: center;
-  }
-  .contact-link-value {
-    overflow-wrap: anywhere;
-  }
-  footer {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-
-/* ── DYNAMIC MARKDOWN CASE STUDIES ───────────────── */
-#cs-md-body {
-  max-width: 760px;
-  margin: 0 auto;
-  text-align: center;
-}
-#cs-md-body h3 {
-  font-family: var(--font-head);
-  font-size: 28px;
-  font-weight: 400;
-  color: var(--green-deep);
-  margin-top: 48px;
-  margin-bottom: 16px;
-  line-height: 1.3;
-  text-align: center;
-}
-#cs-md-body p {
-  font-family: var(--font-body);
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.85;
-  color: var(--text-muted);
-  margin-bottom: 24px;
-  text-align: center;
-}
-#cs-md-body ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 32px;
-  display: inline-block;
-  text-align: left;
-}
-#cs-md-body ul li {
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 1.75;
-  color: var(--text-muted);
-  padding-left: 20px;
-  position: relative;
-  margin-bottom: 12px;
-}
-#cs-md-body ul li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--gold);
-  font-size: 13px;
-}
-
-/* ── CASE SUMMARY ───────────────────────────── */
-.cs-tldr {
-  margin: 0 0 56px;
-  padding: 28px 32px;
-  background: var(--bg-warm);
-  border-left: 3px solid var(--gold);
-}
-.cs-tldr-label {
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 14px;
-}
-.cs-tldr ul { list-style: none; padding: 0; margin: 0; }
-.cs-tldr li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 8px;
-  color: var(--text);
-  font-size: 15px;
-  line-height: 1.6;
-}
-.cs-tldr li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--gold);
-}
-.work-tag.current { background: var(--green-deep); color: var(--bg); border-color: var(--green-deep); }
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<!-- Cursor -->
-<div id="cursor-dot"></div>
-<div id="cursor-ring"></div>
-
-<!-- Nav -->
-<nav id="nav">
-  <a href="#hero" class="nav-name">Atharv Joshi</a>
-  <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#pov">POV</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- ── HERO ──────────────────────────────────────── -->
-<section id="hero">
-  <div class="hero-eyebrow">Brand Strategist · Content Systems · Dubai, UAE</div>
-  <h1 class="hero-name">Atharv Joshi<br><em></em></h1>
-  <div class="hero-bottom">
-    <div class="hero-positioning">
-      <p>I find what a brand provably owns —<br>then build the content system that makes it visible.</p>
-    </div>
-    <div class="hero-cta">
-      <a href="#work" class="btn-primary"><span>View My Work ↓</span></a>
-      <span class="hero-scroll-hint">Scroll to explore</span>
-    </div>
+<header class="site-head" id="top">
+  <div class="wrap">
+    <a href="#top" class="brand">Atharv Joshi</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#approach">Approach</a>
+      <a href="#writing">Writing</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact" class="btn">Get in touch</a>
+    </nav>
   </div>
-  <div class="hero-rule"></div>
-</section>
+</header>
 
-<!-- ── HOW I THINK ───────────────────────────────── -->
-<section id="think">
-  <div class="section-label">The Strategic Lens</div>
-  <h2 class="section-heading reveal">Most brand problems<br>are clarity problems.</h2>
-  <p class="think-intro reveal reveal-delay-1">Before any brief, I start with the same question: what is actually true about this brand that no competitor can say?</p>
-
-  <div class="think-grid">
-    <div class="think-card reveal reveal-delay-1">
-      <div class="think-card-num">01</div>
-      <div class="think-card-title">Consumer Psychology First</div>
-      <p class="think-card-body">Every brand decision is a psychology problem. What does the buyer fear? What makes them trust? What triggers the choice? I work through this before writing a single positioning line.</p>
-    </div>
-    <div class="think-card reveal reveal-delay-2">
-      <div class="think-card-num">02</div>
-      <div class="think-card-title">Positioning Must Be Earned</div>
-      <p class="think-card-body">Claiming "premium quality" without proof is noise. I look for claims the brand can verify — the kind competitors cannot replicate because they require proof the brand actually possesses.</p>
-    </div>
-    <div class="think-card reveal reveal-delay-3">
-      <div class="think-card-num">03</div>
-      <div class="think-card-title">Founder Language as Data</div>
-      <p class="think-card-body">What a founder says repeatedly reveals what they believe. I run frequency analysis on questionnaires to surface unarticulated brand truth before any formal strategy begins.</p>
-    </div>
-    <div class="think-card reveal reveal-delay-1">
-      <div class="think-card-num">04</div>
-      <div class="think-card-title">Communication Systems</div>
-      <p class="think-card-body">A campaign dies. A system scales. I build verbal identity, archetype frameworks, and tone guides so every content piece makes the same brand promise — automatically.</p>
-    </div>
-    <div class="think-card reveal reveal-delay-2">
-      <div class="think-card-num">05</div>
-      <div class="think-card-title">Trust Architecture</div>
-      <p class="think-card-body">In categories where purchase anxiety is high — healthcare, used cars, premium food — trust is the primary conversion driver. I design the proof structure before the message.</p>
-    </div>
-    <div class="think-card reveal reveal-delay-3">
-      <div class="think-card-num">06</div>
-      <div class="think-card-title">Competitive Gap First</div>
-      <p class="think-card-body">I audit the entire competitor landscape before recommending a position. The goal is to find the lane no one is owning — not the lane where everyone is already shouting louder.</p>
+<main id="main">
+<section class="hero">
+  <div class="wrap">
+    <h1>Why do people decide what they decide? <span class="q">I build brands around the answer.</span></h1>
+    <div class="hero-grid">
+      <div>
+        <p class="hero-lede">I'm a brand strategist based in Dubai. I find what a brand can provably own, then build the content system that makes it visible. Right now that means real estate, where buyers commit life-changing sums to buildings that are still renders, often from another country.</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn">See selected work</a>
+          <a href="mailto:atharvj202@gmail.com" class="btn ghost">atharvj202@gmail.com</a>
+        </div>
+      </div>
+      <dl class="facts">
+        <dt>Now</dt><dd>Content Strategist, IND Global Realty</dd>
+        <dt>Before</dt><dd>Brand Strategist, Sociomunk · Co-founder, CareDiabetics</dd>
+        <dt>Focus</dt><dd>Positioning, consumer psychology, content systems</dd>
+        <dt>Sectors</dt><dd>Real estate, FMCG and D2C, consumer platforms, healthcare</dd>
+        <dt>Based in</dt><dd>Dubai, UAE</dd>
+      </dl>
     </div>
   </div>
 </section>
 
-<!-- ── WORK ──────────────────────────────────────── -->
-<section id="work">
-  <div class="section-label">Selected Work</div>
-  <h2 class="section-heading reveal">Strategy applied<br>to real businesses.</h2>
+<section class="block" id="work">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>Selected work</h2>
+      <p>Each project starts with the same question: what is true about this brand that no competitor can say? Open any project for the full strategy.</p>
+    </div>
 
-  <div class="work-index">
+    <h3 class="group-title">Client and in-house work</h3>
+    <ul class="work-list">
+      <li class="work-row"><button type="button" data-case="ind" aria-haspopup="dialog">
+        <span class="work-name"><span class="badge">Current role</span><br>IND Global Realty<small>Real estate, Dubai</small></span>
+        <span class="work-finding">Off-plan buyers commit life-changing sums to buildings that are still renders. Content has to answer the question on their mind: who am I dealing with, and where is my money?</span>
+        <span class="work-meta">Content system, LinkedIn, agent brands<br>2026 – present<br><span class="open">Read case study</span></span>
+      </button></li>
+      <li class="work-row"><button type="button" data-case="jb" aria-haspopup="dialog">
+        <span class="work-name">JB &amp; Co.<small>Premium dry fruits, India</small></span>
+        <span class="work-finding">A 60-year legacy brand with zero complaints had never told its sourcing story, and 73% of its audience was the wrong buyer.</span>
+        <span class="work-meta">Brand audit, repositioning, sub-brand<br>2026<br><span class="open">Read case study</span></span>
+      </button></li>
+      <li class="work-row"><button type="button" data-case="sb" aria-haspopup="dialog">
+        <span class="work-name">Social Basket<small>Events platform, India</small></span>
+        <span class="work-finding">The real competitor was not BookMyShow. It was the user's own indecision on a Friday evening.</span>
+        <span class="work-meta">Zero-to-one positioning, GTM<br>2026<br><span class="open">Read case study</span></span>
+      </button></li>
+      <li class="work-row"><button type="button" data-case="ppc" aria-haspopup="dialog">
+        <span class="work-name">Pune Protein Company<small>D2C plant protein, India</small></span>
+        <span class="work-finding">A premium snack was attracting price-per-gram fitness buyers it could never win. The fix was a different audience, not more posts.</span>
+        <span class="work-meta">Positioning, audience, content system<br>2026<br><span class="open">Read case study</span></span>
+      </button></li>
+    </ul>
 
-    <!-- IND Global Realty -->
-    <a href="#" class="work-item reveal" onclick="openCase('ind'); return false;">
-      <div class="work-num">01</div>
-      <div class="work-content">
-        <div class="work-tags">
-          <span class="work-tag current">Current Role</span>
-          <span class="work-tag">Content System</span>
-          <span class="work-tag">Real Estate · Dubai</span>
-        </div>
-        <div class="work-title">IND Global Realty — Content Strategy for Dubai Real Estate</div>
-        <p class="work-finding">"Buyers here commit life-changing sums to buildings that are still renders, often from another country. Content has to answer the question on their mind: where is my money, and who am I dealing with?"</p>
-      </div>
-      <div class="work-arrow">→</div>
-    </a>
-
-    <!-- JB & Co -->
-    <a href="#" class="work-item reveal reveal-delay-1" onclick="openCase('jb'); return false;">
-      <div class="work-num">02</div>
-      <div class="work-content">
-        <div class="work-tags">
-          <span class="work-tag">Brand Audit</span>
-          <span class="work-tag">Repositioning</span>
-          <span class="work-tag">Sub-Brand</span>
-        </div>
-        <div class="work-title">JB &amp; Co. — Premium Dry Fruits</div>
-        <p class="work-finding">"A 60-year legacy brand. Zero complaints. No brand story. The sourcing story was the brand's biggest asset and its biggest silence."</p>
-      </div>
-      <div class="work-arrow">→</div>
-    </a>
-
-    <!-- Social Basket -->
-    <a href="#" class="work-item reveal reveal-delay-2" onclick="openCase('sb'); return false;">
-      <div class="work-num">03</div>
-      <div class="work-content">
-        <div class="work-tags">
-          <span class="work-tag">Zero-to-One</span>
-          <span class="work-tag">Positioning</span>
-          <span class="work-tag">GTM</span>
-        </div>
-        <div class="work-title">Social Basket — Decision-First Platform</div>
-        <p class="work-finding">"The founder was deeply fluent in the problem. The most urgent work was building fluency in what good actually feels like."</p>
-      </div>
-      <div class="work-arrow">→</div>
-    </a>
-
-    <!-- Pune Protein Company -->
-    <a href="#" class="work-item reveal reveal-delay-3" onclick="openCase('ppc'); return false;">
-      <div class="work-num">04</div>
-      <div class="work-content">
-        <div class="work-tags">
-          <span class="work-tag">Positioning Diagnosis</span>
-          <span class="work-tag">Audience Architecture</span>
-          <span class="work-tag">Content System Design</span>
-        </div>
-        <div class="work-title">Pune Protein Company — Brand Positioning &amp; Content Strategy</div>
-        <p class="work-finding">"The brand had first-mover advantage in a category with zero dominant players in India. It was spending that advantage on content indistinguishable from every competitor."</p>
-      </div>
-      <div class="work-arrow">→</div>
-    </a>
-
-  </div>
-
-  <!-- ── INDEPENDENT CASE STUDIES ───────────────────── -->
-  <div class="section-label reveal" style="margin-top: 100px;">Independent Case Studies</div>
-  <h2 class="section-heading reveal">Deep-dives into Indian consumer brands.</h2>
-
-  <div class="work-index">
-
-    <!-- Zomato -->
-    <a href="#" class="work-item reveal" onclick="openCase('zomato'); return false;">
-      <div class="work-num">01</div>
-      <div class="work-content">
-        <div class="work-tags">
-          <span class="work-tag">Independent Analysis</span>
-          <span class="work-tag">Brand Maturation</span>
-        </div>
-        <div class="work-title">Zomato — Brand Maturation Study</div>
-        <p class="work-finding">"Zomato's brand energy was excitement-generating in a moment consumers had entered utility mode. That gap is a strategic problem."</p>
-      </div>
-      <div class="work-arrow">→</div>
-    </a>
-
-    <!-- Cars24 -->
-    <a href="#" class="work-item reveal reveal-delay-1" onclick="openCase('cars24'); return false;">
-      <div class="work-num">02</div>
-      <div class="work-content">
-        <div class="work-tags">
-          <span class="work-tag">Independent Analysis</span>
-          <span class="work-tag">Trust Architecture</span>
-        </div>
-        <div class="work-title">Cars24 — Rebrand &amp; Trust Architecture</div>
-        <p class="work-finding">"Shifting from all-caps to sentence case is not typographic preference — it is strategic positioning. Brand architecture doing real work."</p>
-      </div>
-      <div class="work-arrow">→</div>
-    </a>
-
-    <!-- Bombay Shaving Company -->
-    <a href="#" class="work-item reveal reveal-delay-2" onclick="openCase('bsc'); return false;">
-      <div class="work-num">03</div>
-      <div class="work-content">
-        <div class="work-tags">
-          <span class="work-tag">Independent Analysis</span>
-          <span class="work-tag">Repositioning</span>
-          <span class="work-tag">Growth Strategy</span>
-        </div>
-        <div class="work-title">Bombay Shaving Company — Strategic Analysis &amp; Repositioning</div>
-        <p class="work-finding">"A single challenger identity cannot credibly carry shaving, body care, fragrance, and Bombae simultaneously. The brand is being asked to be a house of brands without the architecture of one."</p>
-      </div>
-      <div class="work-arrow">→</div>
-    </a>
-
+    <h3 class="group-title">Independent analysis</h3>
+    <ul class="work-list">
+      <li class="work-row"><button type="button" data-case="zomato" aria-haspopup="dialog">
+        <span class="work-name">Zomato<small>Food delivery, India</small></span>
+        <span class="work-finding">The brand stayed in excitement mode after its customers had moved into utility mode.</span>
+        <span class="work-meta">Brand maturation<br>Analysis<br><span class="open">Read case study</span></span>
+      </button></li>
+      <li class="work-row"><button type="button" data-case="cars24" aria-haspopup="dialog">
+        <span class="work-name">Cars24<small>Used cars, India</small></span>
+        <span class="work-finding">A rebrand that moved the brand from persuading sellers to reassuring anxious buyers.</span>
+        <span class="work-meta">Trust architecture<br>Analysis<br><span class="open">Read case study</span></span>
+      </button></li>
+      <li class="work-row"><button type="button" data-case="bsc" aria-haspopup="dialog">
+        <span class="work-name">Bombay Shaving Company<small>Men's grooming, India</small></span>
+        <span class="work-finding">One challenger identity cannot carry shaving, body care, fragrance and a women's brand at once.</span>
+        <span class="work-meta">Brand architecture, growth<br>Analysis<br><span class="open">Read case study</span></span>
+      </button></li>
+    </ul>
   </div>
 </section>
 
-<!-- ── CASE STUDY: IND Global Realty ─────────────── -->
+<section class="block" id="approach">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>How I approach a brand</h2>
+      <p>Most brand problems are clarity problems. Most content problems are trust problems. Three beliefs shape every project.</p>
+    </div>
+    <div class="principles">
+      <div class="principle">
+        <h3>Ownable beats premium.</h3>
+        <p>Every competitor claims "premium quality". A claim is only as strong as the proof behind it, and only useful if no one else can copy that proof.</p>
+        <div class="so">So I start with what the brand can verify.</div>
+      </div>
+      <div class="principle">
+        <h3>Name the feeling before the problem.</h3>
+        <p>Founders are fluent in the problem they solve and quiet about the feeling they deliver. The urgent work is building language for what good feels like.</p>
+        <div class="so">So I listen to how founders talk, then fill the gaps.</div>
+      </div>
+      <div class="principle">
+        <h3>Systems outlast campaigns.</h3>
+        <p>A campaign ends. A system keeps every post, script and caption making the same promise, whoever writes it and however fast the team ships.</p>
+        <div class="so">So I hand over pillars, rules and workflows, not just ideas.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="writing">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>Writing</h2>
+      <p>I write on LinkedIn about how people buy, decide and trust, and how technology is changing it.</p>
+    </div>
+    <div class="posts">
+      <a class="post" href="https://www.linkedin.com/in/atharv-joshi-0302aa230/recent-activity/all/" target="_blank" rel="noopener">
+        <h3>Snack brands don't measure how much you eat</h3>
+        <p>They measure how many times your hand moves. Pack size, chip thickness and air ratio are behavioural levers, not just commercial ones.</p>
+        <span>Read on LinkedIn</span>
+      </a>
+      <a class="post" href="https://www.linkedin.com/in/atharv-joshi-0302aa230/recent-activity/all/" target="_blank" rel="noopener">
+        <h3>When every page has a badge, the badge stops working</h3>
+        <p>Buyers in Dubai real estate look for proof that is expensive to fake: a track record, a person who answers plainly, a handover date that was met.</p>
+        <span>Read on LinkedIn</span>
+      </a>
+      <a class="post" href="https://www.linkedin.com/in/atharv-joshi-0302aa230/recent-activity/all/" target="_blank" rel="noopener">
+        <h3>The most useful AI looks like plumbing</h3>
+        <p>Dubai's new off-plan registration platform matters less for its AI than for one quiet feature: buyers can finally see where their money is.</p>
+        <span>Read on LinkedIn</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="experience">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>Experience</h2>
+      <p>From building a healthcare brand with no budget, to brand strategy for consumer companies, to content for one of the world's most competitive property markets.</p>
+    </div>
+    <ol class="timeline" reversed>
+      <li>
+        <time>Jul 2026 – present</time>
+        <h3>Content Strategist<span>IND Global Realty, Dubai</span></h3>
+        <p>Own 6 Instagram accounts end to end and the company LinkedIn page (1,000+ new followers). Co-built the content system for a 12-account ecosystem: 144 posts every 4 weeks.</p>
+      </li>
+      <li>
+        <time>Mar 2026 – Apr 2026</time>
+        <h3>Brand Strategist<span>Sociomunk, Pune · Contract</span></h3>
+        <p>Brand audits, positioning, audience research and content strategy for JB &amp; Co., Social Basket and Pune Protein Company.</p>
+      </li>
+      <li>
+        <time>Nov 2024 – Nov 2025</time>
+        <h3>Co-founder<span>CareDiabetics, India</span></h3>
+        <p>Built a subscription healthcare brand from zero, with separate messaging for patients, doctors and employers. Ran growth on no budget through health camps, referrals and doctor partnerships.</p>
+      </li>
+    </ol>
+    <div class="skills">
+      <h3>Skills</h3>
+      <ul>
+        <li>Brand positioning</li><li>Brand audits</li><li>Brand architecture</li><li>Naming</li><li>Consumer psychology</li><li>Audience research</li><li>Personas</li><li>Verbal identity</li><li>Messaging</li><li>Content strategy</li><li>Editorial calendars</li><li>Scriptwriting</li><li>Personal branding</li><li>Go-to-market</li><li>AI-assisted research</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Building a brand where trust is the hard part?</h2>
+    <p>I'm interested in brand and content strategy roles in Dubai and internationally. The quickest way to reach me is email.</p>
+    <a class="mail" href="mailto:atharvj202@gmail.com">atharvj202@gmail.com</a>
+    <div class="contact-links">
+      <div><span>LinkedIn</span><a href="https://www.linkedin.com/in/atharv-joshi-0302aa230" target="_blank" rel="noopener">linkedin.com/in/atharv-joshi-0302aa230</a></div>
+      <div><span>Phone</span><a href="tel:+971527993466">+971 52 799 3466</a></div>
+    </div>
+    <div class="foot">
+      <span>© 2026 Atharv Joshi</span>
+      <span>Dubai, UAE</span>
+    </div>
+  </div>
+</section>
+
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-crumb" tabindex="-1">
+  <div class="sheet-bar">
+    <span class="crumb" id="sheet-crumb">Selected work</span>
+    <button class="sheet-close" id="sheet-close" type="button">Close</button>
+  </div>
 <div id="cs-ind" class="case-study">
-  <a href="#" class="cs-back" onclick="closeCase(); return false;">← Back to work</a>
   <div class="cs-header">
     <div class="cs-client">IND Global Realty · Real Estate Brokerage · Dubai</div>
-    <h2 class="cs-title">Content Strategy for<br>Dubai Real Estate</h2>
+    <h2 class="cs-title">Content Strategy for Dubai Real Estate</h2>
     <div class="cs-meta">
       <div class="cs-meta-item"><label>Role</label><span>Content Strategist</span></div>
       <div class="cs-meta-item"><label>Year</label><span>2026–Present</span></div>
@@ -1786,12 +517,10 @@ footer p {
   </div>
 </div>
 
-<!-- ── CASE STUDY: JB & Co ──────────────────────── -->
 <div id="cs-jb" class="case-study">
-  <a href="#" class="cs-back" onclick="closeCase(); return false;">← Back to work</a>
   <div class="cs-header">
     <div class="cs-client">JB &amp; Co. · Premium Dry Fruits · Pune</div>
-    <h2 class="cs-title">Brand Audit &amp;<br>Repositioning</h2>
+    <h2 class="cs-title">Brand Audit &amp; Repositioning</h2>
     <div class="cs-meta">
       <div class="cs-meta-item"><label>Studio</label><span>Sociomunk</span></div>
       <div class="cs-meta-item"><label>Year</label><span>2026</span></div>
@@ -1811,7 +540,7 @@ footer p {
     <div class="cs-stat-row">
       <div class="cs-stat"><strong>60 yrs</strong><span>Sourcing Knowledge</span></div>
       <div class="cs-stat"><strong>Zero</strong><span>Returns &amp; Complaints</span></div>
-      <div class="cs-stat"><strong>5–10L</strong><span>Packets Sold</span></div>
+      <div class="cs-stat"><strong>0.5–1M</strong><span>Packets Sold</span></div>
     </div>
 
     <div class="cs-section">
@@ -1970,12 +699,10 @@ footer p {
   </div>
 </div>
 
-<!-- ── CASE STUDY: Social Basket ─────────────────── -->
 <div id="cs-sb" class="case-study">
-  <a href="#" class="cs-back" onclick="closeCase(); return false;">← Back to work</a>
   <div class="cs-header">
     <div class="cs-client">Social Basket · Event Platform · Pune</div>
-    <h2 class="cs-title">Zero-to-One<br>Brand Strategy</h2>
+    <h2 class="cs-title">Zero-to-One Brand Strategy</h2>
     <div class="cs-meta">
       <div class="cs-meta-item"><label>Studio</label><span>Sociomunk</span></div>
       <div class="cs-meta-item"><label>Year</label><span>2026</span></div>
@@ -2157,12 +884,10 @@ footer p {
   </div>
 </div>
 
-<!-- ── CASE STUDY: Zomato ─────────────────────────── -->
 <div id="cs-zomato" class="case-study">
-  <a href="#" class="cs-back" onclick="closeCase(); return false;">← Back to work</a>
   <div class="cs-header">
     <div class="cs-client">Zomato · Independent Analysis</div>
-    <h2 class="cs-title">Brand Maturation<br>&amp; Positioning Shift</h2>
+    <h2 class="cs-title">Brand Maturation &amp; Positioning Shift</h2>
     <div class="cs-meta">
       <div class="cs-meta-item"><label>Type</label><span>Independent Analysis</span></div>
       <div class="cs-meta-item"><label>Focus</label><span>Brand Maturation, Consumer Psychology</span></div>
@@ -2195,12 +920,10 @@ footer p {
   </div>
 </div>
 
-<!-- ── CASE STUDY: Cars24 ─────────────────────────── -->
 <div id="cs-cars24" class="case-study">
-  <a href="#" class="cs-back" onclick="closeCase(); return false;">← Back to work</a>
   <div class="cs-header">
     <div class="cs-client">Cars24 · Independent Analysis</div>
-    <h2 class="cs-title">Trust Architecture<br>&amp; Rebrand Analysis</h2>
+    <h2 class="cs-title">Trust Architecture &amp; Rebrand Analysis</h2>
     <div class="cs-meta">
       <div class="cs-meta-item"><label>Type</label><span>Independent Analysis</span></div>
       <div class="cs-meta-item"><label>Focus</label><span>Trust Architecture, Category Psychology</span></div>
@@ -2238,12 +961,10 @@ footer p {
   </div>
 </div>
 
-<!-- ── CASE STUDY: Bombay Shaving Company ────────── -->
 <div id="cs-bsc" class="case-study">
-  <a href="#" class="cs-back" onclick="closeCase(); return false;">← Back to work</a>
   <div class="cs-header">
     <div class="cs-client">Bombay Shaving Company · Independent Analysis</div>
-    <h2 class="cs-title">Strategic Analysis &amp;<br>Growth Repositioning</h2>
+    <h2 class="cs-title">Strategic Analysis &amp; Growth Repositioning</h2>
     <div class="cs-meta">
       <div class="cs-meta-item"><label>Type</label><span>Independent Analysis</span></div>
       <div class="cs-meta-item"><label>Focus</label><span>Repositioning, Brand Architecture, Growth Strategy</span></div>
@@ -2370,12 +1091,10 @@ footer p {
 </div>
 
 
-<!-- ── CASE STUDY: Pune Protein Company ─────────── -->
 <div id="cs-ppc" class="case-study">
-  <a href="#" class="cs-back" onclick="closeCase(); return false;">← Back to work</a>
   <div class="cs-header">
     <div class="cs-client">Pune Protein Company · D2C Plant Protein · Pune</div>
-    <h2 class="cs-title">Brand Positioning Diagnosis &amp;<br>Content Strategy</h2>
+    <h2 class="cs-title">Brand Positioning Diagnosis &amp; Content Strategy</h2>
     <div class="cs-meta">
       <div class="cs-meta-item"><label>Type</label><span>Positioning Diagnosis, Audience Architecture, Content System Design</span></div>
       <div class="cs-meta-item"><label>Year</label><span>2026</span></div>
@@ -2557,373 +1276,44 @@ footer p {
 </div>
 
 <!-- Generic Markdown Case Study Container -->
-<div id="cs-markdown" class="case-study">
-  <a href="#" class="cs-back" onclick="closeCase(); return false;">← Back to work</a>
-  <div class="cs-header">
-    <div class="cs-client" id="cs-md-client">Client Name</div>
-    <h2 class="cs-title" id="cs-md-title">Project Title</h2>
-    <div class="cs-meta" id="cs-md-meta">
-      <!-- Generated dynamically -->
-    </div>
-  </div>
 
-  <div class="cs-body" id="cs-md-body">
-    <!-- Parsed markdown content will be injected here -->
-  </div>
-</div>
-
-<!-- POV -->
-<section id="pov">
-  <div class="section-label">Point of View</div>
-  <h2 class="section-heading reveal">Strategy should reduce<br>confusion. Always.</h2>
-
-  <div class="pov-grid">
-    <div class="pov-card reveal reveal-delay-1">
-      <div class="pov-brand">On Legacy Brands</div>
-      <h3>The proof exists. The language doesn't.</h3>
-      <p>Most legacy brands have earned trust they have never learned to communicate. The gap is not credibility — it is articulation. Sixty years of sourcing knowledge that lives only in the founder's head is a competitive moat that no consumer can see.</p>
-      <span class="pov-implication">The strategy is translation, not invention.</span>
-    </div>
-    <div class="pov-card reveal reveal-delay-2">
-      <div class="pov-brand">On Early-Stage Brands</div>
-      <h3>Name the solution state before you name the problem.</h3>
-      <p>Founders are almost always more fluent in the problem they solve than the feeling they deliver. The most urgent brand work for early-stage companies is building precise language for what good looks like — not more diagnosis of what's broken.</p>
-      <span class="pov-implication">"Sorted" is a brand strategy. "Decision fatigue" is a brief.</span>
-    </div>
-    <div class="pov-card reveal reveal-delay-3">
-      <div class="pov-brand">On Positioning</div>
-      <h3>Ownable beats premium. Every time.</h3>
-      <p>Claiming "premium quality" without proof is noise. Every competitor in every category says this. A claim is only as strong as the evidence behind it — and evidence is only useful if no competitor can replicate the same proof.</p>
-      <span class="pov-implication">The best positioning is a fact your competitors cannot truthfully copy.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ── ABOUT ─────────────────────────────────────── -->
-<section id="about">
-  <div class="section-label">About</div>
-  <div class="about-grid">
-    <div class="about-left reveal">
-      <div class="about-initials">AJ</div>
-      <div class="about-title">Brand Strategist &amp;<br>Content Systems</div>
-      <div class="about-location">Dubai, UAE</div>
-
-      <div class="about-credentials">
-        <div class="credential-row">
-          <span>IND Global Realty</span>
-          <span>Content Strategist · 2026–Present</span>
-        </div>
-        <div class="credential-row">
-          <span>Sociomunk</span>
-          <span>Brand Strategist · 2026</span>
-        </div>
-        <div class="credential-row">
-          <span>CareDiabetics</span>
-          <span>Co-Founder · 2024–25</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="about-right reveal reveal-delay-2">
-      <p>I build brand strategy from the ground up — <strong>positioning, audience architecture, verbal identity, and go-to-market logic.</strong> My work lives at the intersection of consumer psychology, competitive insight, and communication systems.</p>
-      <p>I've worked across early-stage startups and legacy businesses, translating <strong>founder instinct into defensible brand decisions.</strong> I think before I write. I write to move people toward action.</p>
-      <p>Today I run content strategy at IND Global Realty in Dubai, where buyers commit life-changing sums to property that is often still a render. <strong>It is the clearest place I know to watch how trust gets built</strong>, and how technology is starting to change it.</p>
-      <p>Earlier, I co-founded CareDiabetics — a subscription-based diabetic care platform. That experience of <strong>building from zero, in a high-trust-barrier category, with no budget</strong>, is the clearest lens I have on what brand strategy actually has to do.</p>
-
-      <div class="about-note">
-        <p>Strategy should reduce confusion. The best brands are not the loudest. They are the clearest. Good strategy helps people decide faster, trust easier, and stay longer. Most brand problems are not communication problems. They are clarity problems.</p>
-        <p style="margin-top: 16px;">That is the work I care about. Not campaigns. Not aesthetics. Not the creative brief. The thinking that comes before all of it.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CONTACT ────────────────────────────────────── -->
-<section id="contact">
-  <div class="contact-label">Let's Talk Strategy</div>
-  <h2 class="contact-heading reveal">Have a brand<br>that needs <em>clarity?</em></h2>
-
-  <div class="contact-links reveal reveal-delay-1">
-    <a href="mailto:atharvj202@gmail.com" class="contact-link">
-      <span class="contact-link-label">Email</span>
-      <span class="contact-link-value">atharvj202@gmail.com</span>
-    </a>
-    <a href="https://linkedin.com/in/atharv-joshi-0302aa230" target="_blank" class="contact-link">
-      <span class="contact-link-label">LinkedIn</span>
-      <span class="contact-link-value">linkedin.com/in/atharv-joshi-0302aa230</span>
-    </a>
-    <a href="tel:+971527993466" class="contact-link">
-      <span class="contact-link-label">Phone</span>
-      <span class="contact-link-value">+971 52 799 3466</span>
-    </a>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Atharv Joshi</p>
-  <p>Strategy-first. Execution-ready.</p>
-</footer>
+</aside>
 
 <script>
-/* ── CURSOR ─────────────────────────────────── */
-const dot  = document.getElementById('cursor-dot');
-const ring = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
+(function () {
+  var head = document.querySelector('.site-head');
+  addEventListener('scroll', function () { head.classList.toggle('scrolled', scrollY > 8); }, { passive: true });
 
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  dot.style.left = mx + 'px';
-  dot.style.top  = my + 'px';
-});
+  var sheet = document.getElementById('sheet'), scrim = document.getElementById('scrim');
+  var crumb = document.getElementById('sheet-crumb'), lastFocus = null;
 
-(function animateCursor() {
-  rx += (mx - rx) * 0.1;
-  ry += (my - ry) * 0.1;
-  ring.style.left = rx + 'px';
-  ring.style.top  = ry + 'px';
-  requestAnimationFrame(animateCursor);
+  function open(id, push) {
+    var cs = document.getElementById('cs-' + id);
+    if (!cs) return;
+    lastFocus = document.activeElement;
+    document.querySelectorAll('.case-study').forEach(function (c) { c.classList.remove('on'); });
+    cs.classList.add('on');
+        crumb.textContent = 'Selected work';
+    sheet.scrollTop = 0;
+    sheet.classList.add('on'); scrim.classList.add('on'); document.body.classList.add('sheet-open');
+    sheet.focus({ preventScroll: true });
+    if (push !== false) history.replaceState(null, '', '#case-' + id);
+  }
+  function close() {
+    sheet.classList.remove('on'); scrim.classList.remove('on'); document.body.classList.remove('sheet-open');
+    history.replaceState(null, '', location.pathname + location.search);
+    if (lastFocus) lastFocus.focus();
+  }
+  document.querySelectorAll('[data-case]').forEach(function (b) {
+    b.addEventListener('click', function () { open(b.getAttribute('data-case')); });
+  });
+  document.getElementById('sheet-close').addEventListener('click', close);
+  scrim.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sheet.classList.contains('on')) close(); });
+  window.openCase = open; window.closeCase = close;
+  function fromHash() { var m = location.hash.match(/^#case-([a-z0-9]+)$/); if (m) open(m[1], false); }
+  fromHash(); addEventListener('hashchange', fromHash);
 })();
-
-document.querySelectorAll('a, button, .work-item, .think-card, .pov-card').forEach(el => {
-  el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
-  el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
-});
-
-document.addEventListener('mousedown', () => ring.classList.add('clicked'));
-document.addEventListener('mouseup',   () => ring.classList.remove('clicked'));
-
-/* ── NAV SCROLL ─────────────────────────────── */
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 80);
-}, { passive: true });
-
-/* ── SCROLL REVEAL ──────────────────────────── */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-/* ── MAGNETIC BUTTON ───────────────────────── */
-document.querySelectorAll('.btn-primary').forEach(btn => {
-  btn.addEventListener('mousemove', e => {
-    const rect = btn.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top  + rect.height / 2;
-    const dx = (e.clientX - cx) * 0.25;
-    const dy = (e.clientY - cy) * 0.25;
-    btn.style.transform = `translate(${dx}px, ${dy}px)`;
-  });
-  btn.addEventListener('mouseleave', () => {
-    btn.style.transform = '';
-  });
-});
-
-/* ── CASE STUDY OPEN/CLOSE ──────────────────── */
-const mainSections = ['hero','think','work','pov','about','contact'];
-
-function openCase(id) {
-  mainSections.forEach(s => {
-    const el = document.getElementById(s);
-    if (el) el.style.display = 'none';
-  });
-  document.querySelector('footer').style.display = 'none';
-
-  // Hide any previously open case study
-  document.querySelectorAll('.case-study').forEach(cs => cs.style.display = 'none');
-
-  const cs = document.getElementById('cs-' + id);
-  if (cs) {
-    cs.style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-}
-
-function closeCase() {
-  document.querySelectorAll('.case-study').forEach(cs => cs.style.display = 'none');
-  mainSections.forEach(s => {
-    const el = document.getElementById(s);
-    if (el) el.style.display = '';
-  });
-  document.querySelector('footer').style.display = '';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-/* ── DYNAMIC PROJECTS LOADER ─────────────────── */
-function parseMarkdown(md) {
-  let lines = md.replace(/\r\n/g, '\n').split('\n');
-  let html = [];
-  let inList = false;
-
-  for (let line of lines) {
-    let trimmed = line.trim();
-    
-    // Headers
-    if (trimmed.startsWith('### ')) {
-      if (inList) { html.push('</ul>'); inList = false; }
-      html.push(`<h3>${trimmed.substring(4)}</h3>`);
-    } else if (trimmed.startsWith('## ')) {
-      if (inList) { html.push('</ul>'); inList = false; }
-      html.push(`<h2>${trimmed.substring(3)}</h2>`);
-    } else if (trimmed.startsWith('# ')) {
-      if (inList) { html.push('</ul>'); inList = false; }
-      html.push(`<h1>${trimmed.substring(2)}</h1>`);
-    }
-    // Blockquote
-    else if (trimmed.startsWith('> ')) {
-      if (inList) { html.push('</ul>'); inList = false; }
-      html.push(`<blockquote>${trimmed.substring(2)}</blockquote>`);
-    }
-    // List items
-    else if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
-      if (!inList) {
-        html.push('<ul>');
-        inList = true;
-      }
-      let content = trimmed.substring(2);
-      // Process bold/italic inside list items
-      content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-      content = content.replace(/\*(.*?)\*/g, '<em>$1</em>');
-      html.push(`<li>${content}</li>`);
-    }
-    // Blank lines
-    else if (trimmed === '') {
-      if (inList) {
-        html.push('</ul>');
-        inList = false;
-      }
-      html.push('');
-    }
-    // Pass through HTML tags (like <div> or </div>)
-    else if (trimmed.startsWith('<') && trimmed.endsWith('>')) {
-      if (inList) { html.push('</ul>'); inList = false; }
-      html.push(trimmed);
-    }
-    // Normal paragraph
-    else {
-      if (inList) {
-        html.push('</ul>');
-        inList = false;
-      }
-      let content = trimmed;
-      content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-      content = content.replace(/\*(.*?)\*/g, '<em>$1</em>');
-      html.push(`<p>${content}</p>`);
-    }
-  }
-  
-  if (inList) {
-    html.push('</ul>');
-  }
-
-  return html.join('\n').replace(/<p><\/p>/g, '');
-}
-
-async function openMarkdownCase(id, markdownFile, title, tags, client) {
-  // Hide main sections and footer, like openCase
-  mainSections.forEach(s => {
-    const el = document.getElementById(s);
-    if (el) el.style.display = 'none';
-  });
-  document.querySelector('footer').style.display = 'none';
-
-  // Hide any previously open case study
-  document.querySelectorAll('.case-study').forEach(cs => cs.style.display = 'none');
-
-  const csMarkdown = document.getElementById('cs-markdown');
-  const csTitle = document.getElementById('cs-md-title');
-  const csClient = document.getElementById('cs-md-client');
-  const csMeta = document.getElementById('cs-md-meta');
-  const csBody = document.getElementById('cs-md-body');
-
-  csTitle.innerText = title;
-  csClient.innerText = client;
-
-  // Build meta items
-  let metaHtml = '';
-  if (tags && tags.length > 0) {
-    metaHtml += `<div class="cs-meta-item"><label>Type</label><span>${tags.join(', ')}</span></div>`;
-  }
-  csMeta.innerHTML = metaHtml;
-  csBody.innerHTML = '<p style="text-align: center; color: var(--text-faint);">Loading project content...</p>';
-  csMarkdown.style.display = 'block';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  try {
-    const res = await fetch(markdownFile);
-    if (!res.ok) throw new Error('Failed to load project file');
-    const mdText = await res.text();
-    csBody.innerHTML = parseMarkdown(mdText);
-  } catch (err) {
-    csBody.innerHTML = `<p style="text-align: center; color: #A0522D;">Error loading project content. Please make sure the file exists in the repository.</p>`;
-    console.error(err);
-  }
-}
-
-// Load external projects from projects.json on page load
-document.addEventListener('DOMContentLoaded', async () => {
-  try {
-    const res = await fetch('projects.json');
-    if (!res.ok) return;
-    const projects = await res.json();
-    const workIndex = document.querySelector('.work-index');
-
-    projects.forEach((proj, idx) => {
-      // Create new card element
-      const card = document.createElement('a');
-      card.href = '#';
-      card.className = 'work-item reveal';
-      // Calculate delay based on position
-      const delay = (idx % 5) + 1;
-      card.classList.add(`reveal-delay-${delay}`);
-      
-      // Setup click handler
-      card.addEventListener('click', (e) => {
-        e.preventDefault();
-        openMarkdownCase(proj.id, proj.markdownFile, proj.title, proj.tags, proj.client);
-      });
-
-      // Build card content
-      let tagsHtml = proj.tags.map(t => `<span class="work-tag">${t}</span>`).join('\n');
-      card.innerHTML = `
-        <div class="work-num">${proj.num}</div>
-        <div class="work-content">
-          <div class="work-tags">
-            ${tagsHtml}
-          </div>
-          <div class="work-title">${proj.title}</div>
-          <p class="work-finding">${proj.finding}</p>
-        </div>
-        <div class="work-arrow">→</div>
-      `;
-
-      workIndex.appendChild(card);
-      
-      // Register with the reveal observer
-      if (typeof observer !== 'undefined') {
-        observer.observe(card);
-      }
-      
-      // Register hover handlers for custom cursor
-      card.addEventListener('mouseenter', () => {
-        const ring = document.getElementById('cursor-ring');
-        if (ring) ring.classList.add('hovered');
-      });
-      card.addEventListener('mouseleave', () => {
-        const ring = document.getElementById('cursor-ring');
-        if (ring) ring.classList.remove('hovered');
-      });
-    });
-  } catch (err) {
-    console.error('Failed to load projects.json:', err);
-  }
-});
 </script>
 </body>
 </html>
