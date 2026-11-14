@@ -1,16 +1,5 @@
-# Portfolio — development
+# Atharv Joshi — Portfolio
 
-This branch contains a small Eleventy scaffold and a redesigned, modular structure for the portfolio.
+Brand strategist based in Dubai. Live site: https://content-os-ind.github.io/atharvj202-ctrl.github.io/
 
-Quick start (requires Node.js):
-
-1. npm install
-2. npm run start
-
-Build:
-
-npm run build
-
-Notes:
-- The site uses Eleventy and will output to _site/.
-- Static assets are in /assets and are passed through to the output.
+The whole site is one file, `index.html`. Edit it and push to publish.
