@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atharv Joshi — Brand Strategist & Positioning Consultant</title>
-<meta name="description" content="I find what a brand provably owns — and build everything from there.">
+<title>Atharv Joshi — Brand Strategist · Content Systems · Dubai</title>
+<meta name="description" content="Brand strategist in Dubai. I find what a brand provably owns, then build the content system that makes it visible.">
 <meta property="og:title" content="Atharv Joshi — Brand Strategist">
 <meta property="og:description" content="I find what a brand provably owns — and build everything from there.">
 
@@ -1149,6 +1149,7 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 24px;
   padding: 12px 0;
   border-bottom: 1px solid var(--rule);
   font-size: 13px;
@@ -1482,6 +1483,37 @@ footer p {
   color: var(--gold);
   font-size: 13px;
 }
+
+/* ── CASE SUMMARY ───────────────────────────── */
+.cs-tldr {
+  margin: 0 0 56px;
+  padding: 28px 32px;
+  background: var(--bg-warm);
+  border-left: 3px solid var(--gold);
+}
+.cs-tldr-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.cs-tldr ul { list-style: none; padding: 0; margin: 0; }
+.cs-tldr li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.cs-tldr li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+.work-tag.current { background: var(--green-deep); color: var(--bg); border-color: var(--green-deep); }
 </style>
 </head>
 <body>
@@ -1503,11 +1535,11 @@ footer p {
 
 <!-- ── HERO ──────────────────────────────────────── -->
 <section id="hero">
-  <div class="hero-eyebrow">Brand Strategist &amp; Positioning Consultant · Pune, India</div>
+  <div class="hero-eyebrow">Brand Strategist · Content Systems · Dubai, UAE</div>
   <h1 class="hero-name">Atharv Joshi<br><em></em></h1>
   <div class="hero-bottom">
     <div class="hero-positioning">
-      <p>I find what a brand provably owns —<br>and build everything from there.</p>
+      <p>I find what a brand provably owns —<br>then build the content system that makes it visible.</p>
     </div>
     <div class="hero-cta">
       <a href="#work" class="btn-primary"><span>View My Work ↓</span></a>
@@ -1564,9 +1596,24 @@ footer p {
 
   <div class="work-index">
 
-    <!-- JB & Co -->
-    <a href="#" class="work-item reveal" onclick="openCase('jb'); return false;">
+    <!-- IND Global Realty -->
+    <a href="#" class="work-item reveal" onclick="openCase('ind'); return false;">
       <div class="work-num">01</div>
+      <div class="work-content">
+        <div class="work-tags">
+          <span class="work-tag current">Current Role</span>
+          <span class="work-tag">Content System</span>
+          <span class="work-tag">Real Estate · Dubai</span>
+        </div>
+        <div class="work-title">IND Global Realty — Content Strategy for Dubai Real Estate</div>
+        <p class="work-finding">"Buyers here commit life-changing sums to buildings that are still renders, often from another country. Content has to answer the question on their mind: where is my money, and who am I dealing with?"</p>
+      </div>
+      <div class="work-arrow">→</div>
+    </a>
+
+    <!-- JB & Co -->
+    <a href="#" class="work-item reveal reveal-delay-1" onclick="openCase('jb'); return false;">
+      <div class="work-num">02</div>
       <div class="work-content">
         <div class="work-tags">
           <span class="work-tag">Brand Audit</span>
@@ -1580,8 +1627,8 @@ footer p {
     </a>
 
     <!-- Social Basket -->
-    <a href="#" class="work-item reveal reveal-delay-1" onclick="openCase('sb'); return false;">
-      <div class="work-num">02</div>
+    <a href="#" class="work-item reveal reveal-delay-2" onclick="openCase('sb'); return false;">
+      <div class="work-num">03</div>
       <div class="work-content">
         <div class="work-tags">
           <span class="work-tag">Zero-to-One</span>
@@ -1595,8 +1642,8 @@ footer p {
     </a>
 
     <!-- Pune Protein Company -->
-    <a href="#" class="work-item reveal reveal-delay-2" onclick="openCase('ppc'); return false;">
-      <div class="work-num">03</div>
+    <a href="#" class="work-item reveal reveal-delay-3" onclick="openCase('ppc'); return false;">
+      <div class="work-num">04</div>
       <div class="work-content">
         <div class="work-tags">
           <span class="work-tag">Positioning Diagnosis</span>
@@ -1663,6 +1710,82 @@ footer p {
   </div>
 </section>
 
+<!-- ── CASE STUDY: IND Global Realty ─────────────── -->
+<div id="cs-ind" class="case-study">
+  <a href="#" class="cs-back" onclick="closeCase(); return false;">← Back to work</a>
+  <div class="cs-header">
+    <div class="cs-client">IND Global Realty · Real Estate Brokerage · Dubai</div>
+    <h2 class="cs-title">Content Strategy for<br>Dubai Real Estate</h2>
+    <div class="cs-meta">
+      <div class="cs-meta-item"><label>Role</label><span>Content Strategist</span></div>
+      <div class="cs-meta-item"><label>Year</label><span>2026–Present</span></div>
+      <div class="cs-meta-item"><label>Scope</label><span>Instagram, LinkedIn, Agent Personal Brands</span></div>
+    </div>
+  </div>
+
+  <div class="cs-body">
+    <div class="cs-tldr">
+      <div class="cs-tldr-label">In 30 seconds</div>
+      <ul>
+        <li><strong>Context:</strong> off-plan buyers commit life-changing sums to unbuilt property, often from abroad. Trust is the product.</li>
+        <li><strong>What I do:</strong> run 6 Instagram accounts end to end, manage the company LinkedIn page and co-built the content system for a 12-account ecosystem.</li>
+        <li><strong>Result so far:</strong> 1,000+ new LinkedIn followers in under 5 months, and a calendar of 144 posts every 4 weeks.</li>
+      </ul>
+    </div>
+    <div class="cs-stat-row">
+      <div class="cs-stat"><strong>6</strong><span>Accounts Owned End to End</span></div>
+      <div class="cs-stat"><strong>1,000+</strong><span>New LinkedIn Followers</span></div>
+      <div class="cs-stat"><strong>144</strong><span>Posts per 4-Week Calendar</span></div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">The Brief</div>
+      <p>IND Global Realty is a Dubai real estate brokerage. Many of its buyers purchase off-plan, sometimes from another country, for amounts that change their lives. The brand needed content that earns trust before the first call, across a company page and the personal accounts of individual agents.</p>
+    </div>
+
+    <div class="cs-callout">
+      <p>"Buyers don't ask whether registration is faster. They ask where their money is right now. Content has to answer that question before they ask it."</p>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">What I Built</div>
+      <div class="cs-decisions">
+        <div class="cs-decision">
+          <div class="cs-decision-num">01</div>
+          <h4>Agent Personal Brands</h4>
+          <p>Shaped each agent's voice and positioning so buyers know who they are dealing with before the first call. In a market full of badges and awards, a recognisable person who answers the awkward question plainly is harder to fake.</p>
+        </div>
+        <div class="cs-decision">
+          <div class="cs-decision-num">02</div>
+          <h4>End-to-End Ownership</h4>
+          <p>Own 6 Instagram accounts from script to publish: positioning, scriptwriting, production briefs, publishing and community management.</p>
+        </div>
+        <div class="cs-decision">
+          <div class="cs-decision-num">03</div>
+          <h4>Content Operating System</h4>
+          <p>Co-built the system behind a 12-account ecosystem: 144 posts mapped across a rolling 4-week calendar, with shoot, edit and approval workflows so output stays consistent week after week.</p>
+        </div>
+        <div class="cs-decision">
+          <div class="cs-decision-num">04</div>
+          <h4>Explainers Over Announcements</h4>
+          <p>Planned content around what buyers actually worry about, not just what is launching: rental yield vs capital appreciation, credit ratings, escrow and Dubai's AI-powered property registration.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">LinkedIn</div>
+      <h3>1,000+ new followers on the company page.</h3>
+      <p>I manage IND Global Realty's LinkedIn page. Market explainers, such as a carousel decoding what a credit rating "on review for downgrade" actually means for buyers, helped grow the page by more than 1,000 followers in under five months.</p>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-section-label">The Implication</div>
+      <p>When every listing carries a badge, badges stop doing the work. Buyers look for proof that is expensive to fake: a track record they can check, a person they recognise, a date that was actually met. Content strategy in real estate is trust strategy, and the best content makes something visible that used to be hidden.</p>
+    </div>
+  </div>
+</div>
+
 <!-- ── CASE STUDY: JB & Co ──────────────────────── -->
 <div id="cs-jb" class="case-study">
   <a href="#" class="cs-back" onclick="closeCase(); return false;">← Back to work</a>
@@ -1671,12 +1794,20 @@ footer p {
     <h2 class="cs-title">Brand Audit &amp;<br>Repositioning</h2>
     <div class="cs-meta">
       <div class="cs-meta-item"><label>Studio</label><span>Sociomunk</span></div>
-      <div class="cs-meta-item"><label>Year</label><span>2025–2026</span></div>
+      <div class="cs-meta-item"><label>Year</label><span>2026</span></div>
       <div class="cs-meta-item"><label>Type</label><span>Brand Audit, Repositioning, Sub-Brand</span></div>
     </div>
   </div>
 
   <div class="cs-body">
+    <div class="cs-tldr">
+      <div class="cs-tldr-label">In 30 seconds</div>
+      <ul>
+        <li><strong>Problem:</strong> a 60-year legacy brand with zero complaints had never told its sourcing story, and 73.3% of its Instagram audience was the wrong buyer.</li>
+        <li><strong>What I did:</strong> rebuilt positioning around ownable proof, created sub-brand Day 3 (from 23 names scored on 9 criteria) and designed a five-pillar trust content system.</li>
+        <li><strong>Takeaway:</strong> legacy brands rarely lack credibility. They lack the language to show it.</li>
+      </ul>
+    </div>
     <div class="cs-stat-row">
       <div class="cs-stat"><strong>60 yrs</strong><span>Sourcing Knowledge</span></div>
       <div class="cs-stat"><strong>Zero</strong><span>Returns &amp; Complaints</span></div>
@@ -1847,12 +1978,20 @@ footer p {
     <h2 class="cs-title">Zero-to-One<br>Brand Strategy</h2>
     <div class="cs-meta">
       <div class="cs-meta-item"><label>Studio</label><span>Sociomunk</span></div>
-      <div class="cs-meta-item"><label>Year</label><span>2025–2026</span></div>
+      <div class="cs-meta-item"><label>Year</label><span>2026</span></div>
       <div class="cs-meta-item"><label>Type</label><span>Positioning, GTM, Audience Architecture</span></div>
     </div>
   </div>
 
   <div class="cs-body">
+    <div class="cs-tldr">
+      <div class="cs-tldr-label">In 30 seconds</div>
+      <ul>
+        <li><strong>Problem:</strong> an early-stage events platform described the problem well but had no language for the feeling it delivers.</li>
+        <li><strong>What I did:</strong> reframed the competitor as indecision, built the archetype system, two personas, verbal identity and a 30-day GTM plan with 5 experiments.</li>
+        <li><strong>Takeaway:</strong> "Sorted" became the brand's emotional centre, and content was designed as decision support.</li>
+      </ul>
+    </div>
     <div class="cs-section">
       <div class="cs-section-label">The Brief</div>
       <p>The competitor is not BookMyShow. It is the user's own indecision. Social Basket is an early-stage Pune startup built around one sharply identified truth: the problem urban Indians have on a Friday evening is not a lack of options. It is decision fatigue.</p>
@@ -2030,6 +2169,13 @@ footer p {
     </div>
   </div>
   <div class="cs-body">
+    <div class="cs-tldr">
+      <div class="cs-tldr-label">In 30 seconds</div>
+      <ul>
+        <li><strong>Question:</strong> why did Zomato's brand energy start to feel off as it expanded?</li>
+        <li><strong>Answer:</strong> consumers moved from excitement to utility mode and the brand language did not follow. Proposed a shift to a trusted food companion.</li>
+      </ul>
+    </div>
     <div class="cs-section">
       <div class="cs-section-label">The Problem</div>
       <p>Zomato built one of the sharpest consumer brands in India — then became a food delivery app that also does grocery, dining reservations, B2B supply, quick commerce, and live events. When a brand becomes hard to describe, it becomes hard to trust.</p>
@@ -2061,6 +2207,13 @@ footer p {
     </div>
   </div>
   <div class="cs-body">
+    <div class="cs-tldr">
+      <div class="cs-tldr-label">In 30 seconds</div>
+      <ul>
+        <li><strong>Question:</strong> what did the Cars24 rebrand actually change?</li>
+        <li><strong>Answer:</strong> it moved the brand from persuading sellers to reassuring buyers, in a category that runs on anxiety.</li>
+      </ul>
+    </div>
     <div class="cs-section">
       <div class="cs-section-label">The Problem</div>
       <p>The Indian used-car market runs on anxiety. Cars24 built a brilliant seller-first platform — "sell your car in 30 minutes" — then pivoted to B2C retail without building equivalent buyer-facing trust infrastructure. The result: trusted by sellers, opaque and anxiety-inducing for buyers.</p>
@@ -2099,6 +2252,13 @@ footer p {
   </div>
 
   <div class="cs-body">
+    <div class="cs-tldr">
+      <div class="cs-tldr-label">In 30 seconds</div>
+      <ul>
+        <li><strong>Question:</strong> can one challenger identity carry shaving, body care, fragrance and a women's brand?</li>
+        <li><strong>Answer:</strong> no. Proposed a branded house with Bombae standalone, plus subscription and offline distribution plays.</li>
+      </ul>
+    </div>
     <div class="cs-stat-row">
       <div class="cs-stat"><strong>₹550 Cr+</strong><span>Revenue Run-Rate FY25</span></div>
       <div class="cs-stat"><strong>75+</strong><span>Active SKUs</span></div>
@@ -2224,6 +2384,14 @@ footer p {
   </div>
 
   <div class="cs-body">
+    <div class="cs-tldr">
+      <div class="cs-tldr-label">In 30 seconds</div>
+      <ul>
+        <li><strong>Problem:</strong> a ₹605 plant-protein snack was attracting price-per-gram fitness buyers it could never win.</li>
+        <li><strong>What I did:</strong> recommended migrating to urban professionals, a five-pillar trust content system and a ₹55 trial pack as the entry point.</li>
+        <li><strong>Takeaway:</strong> a nutrition claim repeated everywhere is evidence, not positioning.</li>
+      </ul>
+    </div>
     <div class="cs-stat-row">
       <div class="cs-stat"><strong>46g</strong><span>Plant Protein per 100g — Rivals Whey</span></div>
       <div class="cs-stat"><strong>Zero</strong><span>Dominant Edamame Brands in India</span></div>
@@ -2437,17 +2605,21 @@ footer p {
   <div class="about-grid">
     <div class="about-left reveal">
       <div class="about-initials">AJ</div>
-      <div class="about-title">Brand Strategist &amp;<br>Positioning Consultant</div>
-      <div class="about-location">Pune, India · Open to consulting &amp; full-time</div>
+      <div class="about-title">Brand Strategist &amp;<br>Content Systems</div>
+      <div class="about-location">Dubai, UAE</div>
 
       <div class="about-credentials">
         <div class="credential-row">
-          <span>CareDiabetics</span>
-          <span>Co-Founder · 2024–25</span>
+          <span>IND Global Realty</span>
+          <span>Content Strategist · 2026–Present</span>
         </div>
         <div class="credential-row">
-          <span>Brand Strategist</span>
-          <span>2025–Present</span>
+          <span>Sociomunk</span>
+          <span>Brand Strategist · 2026</span>
+        </div>
+        <div class="credential-row">
+          <span>CareDiabetics</span>
+          <span>Co-Founder · 2024–25</span>
         </div>
       </div>
     </div>
@@ -2455,7 +2627,8 @@ footer p {
     <div class="about-right reveal reveal-delay-2">
       <p>I build brand strategy from the ground up — <strong>positioning, audience architecture, verbal identity, and go-to-market logic.</strong> My work lives at the intersection of consumer psychology, competitive insight, and communication systems.</p>
       <p>I've worked across early-stage startups and legacy businesses, translating <strong>founder instinct into defensible brand decisions.</strong> I think before I write. I write to move people toward action.</p>
-      <p>Before advising brands, I co-founded CareDiabetics — a subscription-based diabetic care platform. That experience of <strong>building from zero, in a high-trust-barrier category, with no budget</strong>, is the clearest lens I have on what brand strategy actually has to do.</p>
+      <p>Today I run content strategy at IND Global Realty in Dubai, where buyers commit life-changing sums to property that is often still a render. <strong>It is the clearest place I know to watch how trust gets built</strong>, and how technology is starting to change it.</p>
+      <p>Earlier, I co-founded CareDiabetics — a subscription-based diabetic care platform. That experience of <strong>building from zero, in a high-trust-barrier category, with no budget</strong>, is the clearest lens I have on what brand strategy actually has to do.</p>
 
       <div class="about-note">
         <p>Strategy should reduce confusion. The best brands are not the loudest. They are the clearest. Good strategy helps people decide faster, trust easier, and stay longer. Most brand problems are not communication problems. They are clarity problems.</p>
@@ -2477,11 +2650,11 @@ footer p {
     </a>
     <a href="https://linkedin.com/in/atharv-joshi-0302aa230" target="_blank" class="contact-link">
       <span class="contact-link-label">LinkedIn</span>
-      <span class="contact-link-value">linkedin.com/in/atharvjoshi</span>
+      <span class="contact-link-value">linkedin.com/in/atharv-joshi-0302aa230</span>
     </a>
-    <a href="tel:+919763139329" class="contact-link">
+    <a href="tel:+971527993466" class="contact-link">
       <span class="contact-link-label">Phone</span>
-      <span class="contact-link-value">+91 97631 39329</span>
+      <span class="contact-link-value">+971 52 799 3466</span>
     </a>
   </div>
 </section>
