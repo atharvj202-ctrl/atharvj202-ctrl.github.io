@@ -135,6 +135,11 @@ section.block { padding: clamp(64px, 9vw, 120px) 0; border-top: 1px solid var(--
 .skills h3 { margin: 0; font-size: 15px; color: var(--slate); font-weight: 500; }
 .skills ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .skills li { font-size: 14px; padding: 6px 13px; border: 1px solid var(--rule); border-radius: 999px; background: #fff; }
+.certs { margin-top: 28px; }
+.skills ul.cert-list { display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.skills .cert-list li { background: none; border: 0; border-radius: 0; border-bottom: 1px solid var(--rule); padding: 12px 0; font-size: 15px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 24px; }
+.cert-list span { color: var(--slate); }
+.cert-list a { color: var(--blue); font-weight: 600; }
 @media (max-width: 820px) { .timeline li, .skills { grid-template-columns: 1fr; gap: 8px; } }
 
 /* Contact */
@@ -414,7 +419,14 @@ section.block { padding: clamp(64px, 9vw, 120px) 0; border-top: 1px solid var(--
     <div class="skills">
       <h3>Skills</h3>
       <ul>
-        <li>Brand positioning</li><li>Brand audits</li><li>Brand architecture</li><li>Naming</li><li>Consumer psychology</li><li>Audience research</li><li>Personas</li><li>Verbal identity</li><li>Messaging</li><li>Content strategy</li><li>Editorial calendars</li><li>Scriptwriting</li><li>Personal branding</li><li>Go-to-market</li><li>AI-assisted research</li>
+        <li>Brand positioning</li><li>Brand audits</li><li>Brand architecture</li><li>Naming</li><li>Consumer psychology</li><li>Audience research</li><li>Personas</li><li>Verbal identity</li><li>Messaging</li><li>Content strategy</li><li>Editorial calendars</li><li>Scriptwriting</li><li>Personal branding</li><li>Go-to-market</li><li>Market research</li><li>Surveys, interviews and focus groups</li><li>Market sizing</li><li>KPIs and GA4</li><li>AI-assisted research</li>
+      </ul>
+    </div>
+    <div class="skills certs">
+      <h3>Certifications</h3>
+      <ul class="cert-list">
+        <li><strong>Foundations of Neuroscience</strong><span>Johns Hopkins University · 2026</span></li>
+        <li><strong>Market Research: Consumer Behavior &amp; Psychology</strong><span>Coursera · 2026 · <a href="https://coursera.org/verify/UZV4EL0K2K0F" target="_blank" rel="noopener">Verify</a></span></li>
       </ul>
     </div>
   </div>
